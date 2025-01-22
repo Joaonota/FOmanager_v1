@@ -1,0 +1,1 @@
+  <div data-container="" style="text-align: center; margin-top: 10px;"><label data-label="" class="OSFillParent"><span style="font-weight: bold;">Obra Validada</span></label><span><input checked  data-switch="" class="switch" type="checkbox" id="statusCheckbox"></span>

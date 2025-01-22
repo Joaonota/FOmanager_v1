@@ -1,0 +1,13 @@
+.tab-content {
+        display: none;
+    }
+    .tab-content.active {
+        display: block;
+    }
+    .nav-bar {
+        background-color: blue;
+        height: 3px;
+        width: 100px; /* Largura inicial */
+        position: absolute;
+        transition: width 0.3s ease; /* Animação da largura */
+    }

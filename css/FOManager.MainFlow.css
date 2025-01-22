@@ -1,0 +1,10 @@
+﻿.card-overflow{
+    height: 650px;
+    overflow: auto;
+
+}
+
+.test-drop{
+    height: 60px;
+    overflow: auto;
+}
