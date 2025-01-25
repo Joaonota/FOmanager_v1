@@ -14,13 +14,13 @@
     <style>
         /* Estilos responsivos */
         .login-form {
+            width: 100%;
             max-width: 400px;
-            margin: auto;
             padding: 20px;
             background: white;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
-            position: fixed;
+            position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
@@ -59,6 +59,7 @@
             justify-content: center;
         }
 
+        /* Responsividade para telas maiores */
         @media (min-width: 768px) {
             .columns2 {
                 flex-direction: row;
@@ -69,9 +70,34 @@
                 margin-bottom: 0;
             }
         }
+
+        /* Ajuste para telas muito pequenas */
+        @media (max-width: 480px) {
+            .login-form {
+                padding: 15px;
+                width: 90%; /* Ajuste para garantir que o formulário ocupe menos espaço */
+                max-width: none; /* Remove o limite de 400px */
+            }
+
+            .login-logo img {
+                height: 80px; /* Reduz o tamanho do logo */
+            }
+        }
+
+        /* Ajuste para iPhones e dispositivos com tela pequena */
+        @media (max-width: 390px) {
+            .login-form {
+                width: 90%; /* O formulário vai ocupar 90% da tela */
+                padding: 10px;
+            }
+
+            .login-logo img {
+                height: 70px; /* Tamanho do logo reduzido para telas pequenas */
+            }
+        }
     </style>
 </head>
-<?php require "conexao.php" ?>
+<?php require "db/conexao.php" ?>
 <body class="windows desktop is-ltr" style="--header-size-content: 40px; --footer-height: 56px;">
     <div id="reactContainer">
         <div id="transitionContainer">
@@ -81,7 +107,7 @@
                         <div data-container="" class="content">
                             <div class="main-content" id="b1-Content">
                                 <div data-container="" class="login-screen">
-                                    <form data-form="" method="post" action="processaLogin.php" novalidate="" class="login-form" id="LoginForm">
+                                    <form data-form="" method="post" action="auth/processa_Login.php" novalidate="" class="login-form" id="LoginForm">
                                         <div data-container="" class="login-logo text-center">
                                             <div data-container="" class="text-center">
                                                 <img data-image="" class="border-radius-soft shadow-s" src="img/FOManager.Logo.png" alt="" style="height: 100px;">
