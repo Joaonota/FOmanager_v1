@@ -1,7 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<?php require "estilo.php" ?>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--link rel="stylesheet" href="css/FOManager.MainFlow.css"-->
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/script.css">
+     <link rel="stylesheet" href="../css/aba.css">
+    <link rel="stylesheet" href="../css/Basic.css">
+  <link rel="stylesheet" href="../css/FOManager.FOManager.css">
+  <link rel="stylesheet" href="../css/OutSystemsReactWidgets.css">
+  <link rel="stylesheet" href="../css/OutSystemsUI.OutSystemsUI.css">
+  <link rel="stylesheet" href="../css/OutSystemsUI.OutSystemsUI.extra.css">
+  <link rel="stylesheet" href="../css/all.min.css">
+  <link rel="stylesheet" href="../css/all.css">
+  <link rel="stylesheet" href="../css/brands.min.css">
+  <link rel="stylesheet" href="../css/solid.min.css">
+  <link rel="stylesheet" href="../css/fontawesome.css">
+  <script src="../js/script.js"></script>
+<?php require "../estilo.php"; ?>
 <title>Lista de Colaborador</title>
 <body>
   
@@ -11,7 +28,7 @@
     <div data-block="Common.Layout" class="OSBlockWidget" id="$b1">
     <div   class="layout layout-side layout-native ios-bounce aside" id="b1-LayoutWrapper">
         <!-- drawer-->
-    <?php require "drawer.php" ?>
+    <?php require "../drawer.php" ?>
 <h1 data-advancedhtml="" class="header-title">
             </h1>
             <h1 data-advancedhtml="" class="header-title">
@@ -352,9 +369,9 @@ while ($rows = mysqli_fetch_assoc($mysqlshow)) {
 </div>
 </div>
 
- <script src="js/aba.js"></script> 
-  <script src="js/modal.js"></script>
-  <script src="js/jquery.js"></script>
+ <script src="../js/aba.js"></script> 
+  <script src="../js/modal.js"></script>
+  <script src="../js/jquery.js"></script>
   <script>
 // $(document).ready(function() {
 //    var initialResults = $('#initialData').html();
