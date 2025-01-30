@@ -1,5 +1,5 @@
 <?php 
-require "config.php";
+require "../db/config.php";
   if (@$_GET['func']== 'deletar' ) {
 
     $ido = $_GET['ido'];

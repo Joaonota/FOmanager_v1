@@ -58,7 +58,7 @@ li {
                         <li><a  class="ThemeGrid_MarginGutter" data-link=""  role="menuitem" tabindex="-1" href="lista_colaboradores.php">Listar Colaborador</a></li>
                        Adicione mais itens de submenu conforme necessário 
                     </ul>  -->
-        <a class="ThemeGrid_MarginGutter" data-link="" href="lista_obra.php?id=<?php echo $id_user ?>"> <i data-icon="" class="icon fa-solid fa-building" id="b4-b2-Icon3"></i> Obras</a>
+        <a class="ThemeGrid_MarginGutter" data-link="" href="../obras/lista_obra.php?id=<?php echo $id_user ?>"> <i data-icon="" class="icon fa-solid fa-building" id="b4-b2-Icon3"></i> Obras</a>
                                    <!--    <ul style="height: 110px;" class="submenu" id="submenu-obras">
                         <li><a  class="ThemeGrid_MarginGutter" data-link=""  role="menuitem" tabindex="-1" href="add_obra.php">Adicionar Obra</a></li>
                         <li><a  class="ThemeGrid_MarginGutter" data-link=""  role="menuitem" tabindex="-1" href="Lista_obra.php?id=<?php echo $id_user ?>">Listar Obra</a></li>

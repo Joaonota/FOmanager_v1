@@ -8,7 +8,7 @@
 </head>
 <?php 
 
-require "conexao.php";
+require "../db/conexao.php";
 
             if (isset($_POST['butao'])) {
 

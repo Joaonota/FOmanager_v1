@@ -127,5 +127,5 @@
 
   
 </body>
-<script src="js/menusub.js"></script> 
+<script src="../js/menusub.js"></script> 
 </html>
