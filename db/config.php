@@ -1,10 +1,10 @@
 <?php
 session_start(); 
-require "db/conexao.php"; 
+require "conexao.php";
 
 // Verificar se as variáveis de sessão estão definidas e não estão vazias
 if (empty($_SESSION['username']) || empty($_SESSION['password']) || empty($_SESSION['nome']) || empty($_SESSION['apelido'])) {
-    header("Location: index.php");
+    header("Location: ../index.php");
     exit;
 }
 

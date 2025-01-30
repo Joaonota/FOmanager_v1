@@ -1,8 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-<?php require "estilo.php"; ?>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--link rel="stylesheet" href="css/FOManager.MainFlow.css"-->
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/script.css">
+     <link rel="stylesheet" href="../css/aba.css">
+    <link rel="stylesheet" href="../css/Basic.css">
+  <link rel="stylesheet" href="../css/FOManager.FOManager.css">
+  <link rel="stylesheet" href="../css/OutSystemsReactWidgets.css">
+  <link rel="stylesheet" href="../css/OutSystemsUI.OutSystemsUI.css">
+  <link rel="stylesheet" href="../css/OutSystemsUI.OutSystemsUI.extra.css">
+  <link rel="stylesheet" href="../css/all.min.css">
+  <link rel="stylesheet" href="../css/all.css">
+  <link rel="stylesheet" href="../css/brands.min.css">
+  <link rel="stylesheet" href="../css/solid.min.css">
+  <link rel="stylesheet" href="../css/fontawesome.css">
+  <script src="../js/script.js"></script>
+<?php require "../estilo.php"; ?>
 
 <style>
 /* Adicionando estilo para permitir o scroll */
@@ -48,9 +64,9 @@ body {
 <body>
 
 <?php if (@$painel == "staff") {
-      require "staff.php";
+      require "../staff.php";
     }elseif ($painel == "basic") {
-        require "basic.php";
+        require "../basic.php";
     } else {
 
      ?>
@@ -60,7 +76,7 @@ body {
     <div data-block="Common.Layout" class="OSBlockWidget" id="$b1">
     <div   class="layout layout-side layout-native ios-bounce aside" id="b1-LayoutWrapper">
         <!-- drawer-->
-    <?php require "drawer.php"; ?>
+    <?php require "../drawer.php"; ?>
             <h1 data-advancedhtml="" class="header-title">
 
             <div class="OSInline" id="b1-Title">
@@ -131,7 +147,7 @@ while ($rows= mysqli_fetch_assoc($mysqlshow)) {
 
                     ?>
 
-<div data-list-item="" class="list-item" id="l1-30_0-ListItem1" style="background-color: white;">
+<div data-list-item="" class="list-item" id="l1-30_0-ListItem1" style="background-color: white; padding: 10px;">
     <div data-block="Utilities.AlignCenter" class="OSBlockWidget" id="l1-30_0-$b7">
         <div class="vertical-align flex-direction-row" id="l1-30_0-b7-Content">
             <span data-expression="" class="bold ThemeGrid_Width3"><?php echo $rows['codigo']; ?></span>
@@ -140,6 +156,7 @@ while ($rows= mysqli_fetch_assoc($mysqlshow)) {
 <span data-expression="" class="ThemeGrid_Width4 ThemeGrid_MarginGutter"><?php echo strtoupper($rows['dataf']); ?></span>
 <span data-expression="" class="ThemeGrid_Width4 ThemeGrid_MarginGutter"><?php echo strtoupper($rows['cliente']); ?></span>
 <span data-expression="" class="ThemeGrid_Width4 ThemeGrid_MarginGutter"><?php echo strtoupper($rows['localizacao']); ?></span>
+
 <?php if ($rows['status_apro'] == "aprovado"){
 
 ?>
@@ -152,11 +169,12 @@ while ($rows= mysqli_fetch_assoc($mysqlshow)) {
     </div>
 </div>
 </a>
+
+<br>
 <?php }elseif ($rows['status_apro'] == "finalizado") {
     // code...
 
 ?>
-    
 
 <a onclick="mostrapovalida()" href="lista_obra.php?obra=<?php echo $rows['codigo']; ?>">
 <div data-container="" class="ThemeGrid_Width2 ThemeGrid_MarginGutter" style="text-align: left;">
@@ -187,18 +205,21 @@ while ($rows= mysqli_fetch_assoc($mysqlshow)) {
     <div data-block="Content.Tag" class="OSBlockWidget" id="l1-30_0-$b9">
         <div class="tag border-radius-rounded background-primary background-red-lightest text-red-darker OSInline" id="l1-30_0-b9-Tag"><?php echo strtoupper($rows['status_apro']); ?></div>
     </div>
+    
 </div>
+
 <?php }  ?>
 
 
 <div data-container="" class="ThemeGrid_Width3" style="text-align: center; height: 34px;">
+  
     <div data-block="Utilities.AlignCenter" class="OSBlockWidget" id="l1-30_0-$b11">
         <div class="vertical-align flex-direction-row" id="l1-30_0-b11-Content">
             <div data-container="" class="ThemeGrid_Width3" style="text-align: left;">
                 <a data-link="" href="edita_obra.php?edita=<?php echo $rows['codigo']; ?>">
                     <i data-icon="" class="icon fa fa-plus-square fa-2x" style="color: rgb(89, 172, 227); font-size: 34px;">
                 </i>
-            </a>
+            </a><br>
             </div>
             <div data-container="" class="ThemeGrid_Width4 ThemeGrid_MarginGutter" style="text-align: center; height: 34px;">
                     <a data-link="" href="processa_editaSta.php?ids_obra=<?php echo $rows['codigo']; ?>">
@@ -233,17 +254,42 @@ while ($rows= mysqli_fetch_assoc($mysqlshow)) {
 
 
 
-$result_count = mysqli_query($conexao, "SELECT COUNT(*) as total FROM obra WHERE  status = 'ativo'");
+$result_count = mysqli_query($conexao, "SELECT COUNT(*) as total FROM obra WHERE status = 'ativo'");
 $row_count = mysqli_fetch_assoc($result_count);
 $total_paginas = ceil($row_count['total'] / $limite);
 
-for ($i=1; $i <=$total_paginas;  $i++) { 
-
 echo '<div class="pagination">';
-    echo "<a href='lista_obra.php?pagina=$i'>$i</a>";
-     echo '</div>';
+if ($pagina > 1) {
+    echo "<a href='lista_obra.php?pagina=" . ($pagina - 1) . "'>Anterior</a>";
 }
 
+$max_links = 20;
+if ($total_paginas > 20) {
+    if ($pagina > 10) {
+        echo "<a href='lista_obra.php?pagina=1'>1</a>";
+        echo "<span class='ellipsis'>...</span>";
+    }
+    $start = max(1, min($pagina - 9, $total_paginas - 19));
+    $end = min($total_paginas, $start + 19);
+} else {
+    $start = 1;
+    $end = $total_paginas;
+}
+$start = max(1, $pagina - floor($max_links / 2));
+$end = min($total_paginas, $pagina + floor($max_links / 2));
+
+for ($i = $start; $i <= $end; $i++) {
+    if ($i == $pagina) {
+        echo "<a class='active' href='lista_obra.php?pagina=$i'>$i</a>";
+    } else {
+        echo "<a href='lista_obra.php?pagina=$i'>$i</a>";
+    }
+}
+
+if ($pagina < $total_paginas) {
+    echo "<a href='lista_obra.php?pagina=" . ($pagina + 1) . "'>Próximo</a>";
+}
+echo '</div>';
 
  ?>
 </div>
@@ -637,9 +683,9 @@ $sqlcolas =mysqli_query($conexao,"SELECT * FROM obra WHERE id_obra = '$obra_id'"
 </div>
 
  
-    <script src="js/aba.js"></script> 
-  <script src="js/modal.js"></script>
-  <script src="js/jquery.js"></script>
+    <script src="../js/aba.js"></script> 
+  <script src="../js/modal.js"></script>
+  <script src="../js/jquery.js"></script>
   <script>
  //$(document).ready(function() {
  //   var initialResults = $('#initialData').html();

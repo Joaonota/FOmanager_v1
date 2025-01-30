@@ -20,4 +20,4 @@
   <script src="js/script.js"></script>
    
   
-  <?php require "config/config.php" ?>
+  <?php require "db/config.php"; ?>

@@ -1,4 +1,4 @@
-<?php require "config/config.php"; ?>
+<?php require "db/config.php"; ?>
 
-<script>location='lista_obra.php?id=<?php echo $id_user ?>';</script>
+<script>location='obras/lista_obra.php?id=<?php echo $id_user ?>'</script>
 
