@@ -44,7 +44,7 @@ li {
                                         </div>
                                     </div>
                                     <div data-container="" class="app-menu-links" role="menubar" id="b4-PageLinks">
-                <a data-link href="lista_clientes.php"role="menuitem" ><i data-icon="" class="icon fa-solid fa-users" id="b4-b2-Icon3"></i> Clientes</a>
+                <a data-link href="../clientes/lista_clientes.php"role="menuitem" ><i data-icon="" class="icon fa-solid fa-users" id="b4-b2-Icon3"></i> Clientes</a>
                                    <!--     <ul style="height: 110px;" class="submenu" id="submenu-clies">
                         <li><a  class="ThemeGrid_MarginGutter" data-link=""  role="menuitem" tabindex="-1" href="add_obra.php">Adicionar Cliente</a></li>
                         <li><a  class="ThemeGrid_MarginGutter" data-link=""  role="menuitem" tabindex="-1" href="lista_clientes.php">Listar Clientes</a></li>
