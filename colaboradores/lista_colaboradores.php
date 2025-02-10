@@ -19,6 +19,46 @@
   <link rel="stylesheet" href="../css/fontawesome.css">
   <script src="../js/script.js"></script>
 <?php require "../estilo.php"; ?>
+<style>
+/* Adicionando estilo para permitir o scroll */
+body {
+    overflow-y: scroll;
+}
+
+.pagination {
+            display: inline-block;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .pagination a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: background-color .3s;
+            border: 1px solid #ddd;
+            margin: 0 4px;
+            border-radius: 5px;
+        }
+
+        .pagination a.active {
+            background-color: #4CAF50;
+            color: white;
+            border: 1px solid #4CAF50;
+        }
+
+        .pagination a:hover:not(.active) {
+            background-color: #ddd;
+        }
+
+        .pagination .ellipsis {
+            padding: 8px 16px;
+            text-decoration: none;
+            color: black;
+        }
+</style>
+
 <title>Lista de Colaborador</title>
 <body>
   
@@ -94,94 +134,136 @@
 <div  id="searchResults">
     <div id="initialData">
 
+    <div data-block="Content.Accordion" id="tab2" class="tab-content active"  >
+        <div class="osui-accordion margin-top-l" name="0.f37w7ue0yms" id="b8-Content" role="tablist">
+            <div data-list="" data-virtualization-disabled="" class="list list-group OSFillParent" disable-virtualization="True">
+                <?php 
+    $limite = 20;
+    $pagina= isset($_GET['pagina']) ? (int) $_GET['pagina'] : 1;
+    $inicio = ($pagina - 1) * $limite;
+    $mysqlshow = mysqli_query($conexao, "SELECT * FROM colaborador WHERE status = 'ativo' LIMIT $inicio, $limite");
 
-<div data-block="Content.Accordion" id="tab2" class="tab-content active"  >
-    <div class="osui-accordion margin-top-l" name="0.f37w7ue0yms" id="b8-Content" role="tablist">
-        <div data-list="" data-virtualization-disabled="" class="list list-group OSFillParent" disable-virtualization="True">
-            <?php 
-
-$mysqlshow = mysqli_query($conexao, "SELECT * FROM colaborador WHERE status = 'ativo' ");
-
-while ($rows = mysqli_fetch_assoc($mysqlshow)) {
-    // code...
+    while ($rows = mysqli_fetch_assoc($mysqlshow)) {
+        // code...
 
 
 
- ?>
+     ?>
 
-            
-<div data-block="Content.AccordionItem" class="OSBlockWidget" id="l1-5_23-$b9">
-    <div data-container="" class="osui-accordion-item osui-accordion-item--is-closed" name="0.94g9q4znk6o" id="l1-5_23-b9-AccordionItem" aria-disabled="false" aria-controls="l1-5_23-b9-Content" role="tab" aria-expanded="false"></div>
-</div>
-<div data-block="Content.AccordionItem" class="OSBlockWidget" id="l1-5_205-$b9">
-    <div data-container="" class="osui-accordion-item osui-accordion-item--is-closed" >
-        <div data-container="" class="osui-accordion-item__title osui-accordion-item__title--is-right" id="l1-5_205-b9-TitleWrapper" tabindex="0" role="button" aria-expanded="false">
-            <div class="osui-accordion-item__title__placeholder" id="l1-5_205-b9-Title">
-                <div data-block="Adaptive.Columns4" class="OSBlockWidget" id="l1-5_205-$b10">
+                
+    <div data-block="Content.AccordionItem" class="OSBlockWidget" id="l1-5_23-$b9">
+        <div data-container="" class="osui-accordion-item osui-accordion-item--is-closed" name="0.94g9q4znk6o" id="l1-5_23-b9-AccordionItem" aria-disabled="false" aria-controls="l1-5_23-b9-Content" role="tab" aria-expanded="false"></div>
+    </div>
+    <div data-block="Content.AccordionItem" class="OSBlockWidget" id="l1-5_205-$b9">
+        <div data-container="" class="osui-accordion-item osui-accordion-item--is-closed" >
+            <div data-container="" class="osui-accordion-item__title osui-accordion-item__title--is-right" id="l1-5_205-b9-TitleWrapper" tabindex="0" role="button" aria-expanded="false">
+                <div class="osui-accordion-item__title__placeholder" id="l1-5_205-b9-Title">
+                    <div data-block="Adaptive.Columns4" class="OSBlockWidget" id="l1-5_205-$b10">
+                        <div data-container="" class="columns columns4 gutter-base tablet-break-middle phone-break-all ">
+
+        <div data-container="" class="osui-accordion-item__title osui-accordion-item__title--is-right" id="l1-5_0-b9-TitleWrapper" tabindex="0" role="button" aria-expanded="false">
+            <div class="osui-accordion-item__title__placeholder" id="l1-5_0-b9-Title">
+                <div data-block="Adaptive.Columns4" class="OSBlockWidget" id="l1-5_0-$b10">
                     <div data-container="" class="columns columns4 gutter-base tablet-break-middle phone-break-all ">
-
-    <div data-container="" class="osui-accordion-item__title osui-accordion-item__title--is-right" id="l1-5_0-b9-TitleWrapper" tabindex="0" role="button" aria-expanded="false">
-        <div class="osui-accordion-item__title__placeholder" id="l1-5_0-b9-Title">
-            <div data-block="Adaptive.Columns4" class="OSBlockWidget" id="l1-5_0-$b10">
-                <div data-container="" class="columns columns4 gutter-base tablet-break-middle phone-break-all ">
-                    <div class="columns-item" id="l1-5_0-b10-Column1">
-                        <div data-block="Utilities.AlignCenter" class="OSBlockWidget" id="l1-5_0-$b11">
-        <div class="vertical-align flex-direction-row" id="l1-5_0-b11-Content">
-            <i data-icon="" class="icon fa fa-user fa-2x" style="color: rgb(146, 152, 156);"></i>
-            <span data-expression="" data-nome="<?php echo strtoupper($row['nome']); ?>" class="margin-left-base"><?php echo strtoupper($rows['nome']); ?></span>
-        </div>
-    </div>
-</div>
-<div class="columns-item" id="l1-5_0-b10-Column2">
-    <div data-container="" class="margin-top-xs">
-        <span data-expression="" class="font-size-base"><?php echo $rows['cargo']; ?></span>
-    </div>
-</div>
-<div class="columns-item" id="l1-5_0-b10-Column3">
-    <div data-container="" class="margin-top-xs"></div>
-</div>
-<div class="columns-item" id="l1-5_0-b10-Column4">
-    <div data-container="" class="margin-top-xs">
-        <div data-block="Content.Tag" class="OSBlockWidget" id="l1-5_0-$b12">
-            <div class="tag tag-small border-radius-rounded background-primary background-green-lightest text-green-darker OSInline" id="l1-5_0-b12-Tag">
-                <span data-expression="">ativo</span>
+                        <div class="columns-item" id="l1-5_0-b10-Column1">
+                            <div data-block="Utilities.AlignCenter" class="OSBlockWidget" id="l1-5_0-$b11">
+            <div class="vertical-align flex-direction-row" id="l1-5_0-b11-Content">
+                <i data-icon="" class="icon fa fa-user fa-2x" style="color: rgb(146, 152, 156);"></i>
+                <span data-expression="" data-nome="<?php echo strtoupper($row['nome']); ?>" class="margin-left-base"><?php echo strtoupper($rows['nome']); ?></span>
             </div>
         </div>
     </div>
-</div>
-</div>
-</div>
-</div>
-<div data-container="" class="ThemeGrid_Width ThemeGrid_MarginGutter" style=" color: rgb(224, 82, 67);">
-       <a data-link="" href="edita_colaborador.php?id_d_cola=<?php echo $rows['id_colaborador']; ?>" style="color: red;">
-        <i data-icon="" class="icon fa fa-plus-square fa-2x" style="color: rgb(89, 227, 179); font-size: 34px; height: 34px; margin-top: 3px;">
-        </i>
-        </a>
-</div>
-<div data-container="" class="ThemeGrid_Width ThemeGrid_MarginGutter" style=" color: rgb(224, 82, 67);">
-       <a data-link="" href="javascript:void(0);" onclick="if(confirm('Tem certeza que deseja deletar este colaborador?')) { window.location.href='processa_deleta_colaborador.php?func=deletar&id_d_cola=<?php echo $rows['id_colaborador']; ?>'; }" style="color: red;">
-        <i data-icon="" class="fa fa-trash-o" style="font-size: 34px;">
-        </i>
-        </a>
-</div>
+    <div class="columns-item" id="l1-5_0-b10-Column2">
+        <div data-container="" class="margin-top-xs">
+            <span data-expression="" class="font-size-base"><?php echo $rows['cargo']; ?></span>
+        </div>
+    </div>
+    <div class="columns-item" id="l1-5_0-b10-Column3">
+        <div data-container="" class="margin-top-xs"></div>
+    </div>
+    <div class="columns-item" id="l1-5_0-b10-Column4">
+        <div data-container="" class="margin-top-xs">
+            <div data-block="Content.Tag" class="OSBlockWidget" id="l1-5_0-$b12">
+                <div class="tag tag-small border-radius-rounded background-primary background-green-lightest text-green-darker OSInline" id="l1-5_0-b12-Tag">
+                    <span data-expression="">ativo</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div data-container="" class="ThemeGrid_Width ThemeGrid_MarginGutter" style=" color: rgb(224, 82, 67);">
+           <a data-link="" href="edita_colaborador.php?id_d_cola=<?php echo $rows['id_colaborador']; ?>" style="color: red;">
+            <i data-icon="" class="icon fa fa-plus-square fa-2x" style="color: rgb(89, 227, 179); font-size: 34px; height: 34px; margin-top: 3px;">
+            </i>
+            </a>
+    </div>
+    <div data-container="" class="ThemeGrid_Width ThemeGrid_MarginGutter" style=" color: rgb(224, 82, 67);">
+           <a data-link="" href="javascript:void(0);" onclick="if(confirm('Tem certeza que deseja deletar este colaborador?')) { window.location.href='processa_deleta_colaborador.php?func=deletar&id_d_cola=<?php echo $rows['id_colaborador']; ?>'; }" style="color: red;">
+            <i data-icon="" class="fa fa-trash-o" style="font-size: 34px;">
+            </i>
+            </a>
+    </div>
 
 
 
 
-</div>
-                       
-</div>
-</div>
-</div>
+    </div>
+                           
+    </div>
+    </div>
+    </div>
 
 
-</div>
-</div>
-</div>
-<?php } ?>
-</div>
-</div>
-</div>
+    </div>
+    </div>
+    </div>
+    <?php }
+
+
+
+    $result_count = mysqli_query($conexao, "SELECT COUNT(*) as total FROM colaborador WHERE status = 'ativo'");
+    $row_count = mysqli_fetch_assoc($result_count);
+    $total_paginas = ceil($row_count['total'] / $limite);
+
+    echo '<div class="pagination">';
+    if ($pagina > 1) {
+        echo "<a href='lista_colaboradores.php?pagina=" . ($pagina - 1) . "'>Anterior</a>";
+    }
+
+    $max_links = 20;
+    if ($total_paginas > 20) {
+        if ($pagina > 10) {
+            echo "<a href='lista_colaboradores.php?pagina=1'>1</a>";
+            echo "<span class='ellipsis'>...</span>";
+        }
+        $start = max(1, min($pagina - 9, $total_paginas - 19));
+        $end = min($total_paginas, $start + 19);
+    } else {
+        $start = 1;
+        $end = $total_paginas;
+    }
+    $start = max(1, $pagina - floor($max_links / 2));
+    $end = min($total_paginas, $pagina + floor($max_links / 2));
+
+    for ($i = $start; $i <= $end; $i++) {
+        if ($i == $pagina) {
+            echo "<a class='active' href='lista_colaboradores.php?pagina=$i'>$i</a>";
+        } else {
+            echo "<a href='lista_colaboradores.php?pagina=$i'>$i</a>";
+        }
+    }
+
+    if ($pagina < $total_paginas) {
+        echo "<a href='lista_colaboradores.php?pagina=" . ($pagina + 1) . "'>Próximo</a>";
+    }
+    echo '</div>';
+
+    ?>
+    </div></div>
+    </div>
+    </div>
 
 <div data-block="Content.Accordion" id="tab1" class="tab-content" >
     <div class="osui-accordion margin-top-l" name="0.f37w7ue0yms" id="b8-Content" role="tablist">
