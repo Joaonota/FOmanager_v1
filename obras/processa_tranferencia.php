@@ -3,7 +3,7 @@
 
 
 
-require 'conexao.php';
+require '../db/conexao.php';
 			if (isset($_POST['butao'])) {
 				$codigo_obra = $_POST['codigo_obra'];
 				$entrada = $_POST['entrada'];

@@ -1,5 +1,5 @@
 <?php 
-require "conexao.php";
+require "../db/conexao.php";
   if (@$_GET['func']== 'deletar' ) {
     $id_d_cola = $_GET['id_d_cola'];
     $idobra_exta = $_GET['idobra_exta'];

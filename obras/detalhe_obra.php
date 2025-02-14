@@ -340,86 +340,102 @@ while ($row = mysqli_fetch_assoc($sqlcola)) {
 <!-- Modal Para Adiconar O cola a uma obra-->
 <?php 
 $ids_obra = $_GET['ids_obra'];
-?>
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body"> 
-                <div data-popup="" class="popup-dialog popup-dialog" role="dialog" aria-modal="">
-                        <div class="popup-content">
-                                <form method="post" action="processa_andamento.php" class="form card OSFillParent" id="Form1">
-                                        <div data-container="" style="margin-bottom: 20px;">
-                                                <div data-container="">
-                                                        <label data-label="" class="ThemeGrid_Width4" for="Dropdown4">
-                                                                <span style="font-weight: bold;">Horas extra</span>
-                                                        </label>
-                                                        <div data-container="" class="ThemeGrid_Width5 ThemeGrid_MarginGutter" style="text-align: left;">
-                                                                <span onclick="toggleInpu()">
-                                                                        <input data-switch="" class="switch" type="checkbox" id="Switch2" onclick="toggleInpu()"></span>
-                                                        </div>
-                                                </div>
-                                                <div id="consultaResultado"></div>
-                                                <input type="hidden" value="<?php echo @$id; ?>" name="id_colaborador_extra">
-                                                <input data-input="" name="codigo_obra" value="<?php echo @$ids_obra; ?>" class="form-control OSFillParent" type="hidden" aria-required="false" id="id_obra">
-                                                <?php 
-                                                $sqlobra = mysqli_query($conexao, "SELECT * FROM obra WHERE codigo = '$ids_obra'");
-                                                while ($obrarow = mysqli_fetch_assoc($sqlobra)) {
-                                                ?> 
-                                                <input type="hidden" name="descricao_extra" value="<?php echo strtoupper($obrarow['descricao']); ?>">
-                                                <?php } ?>
-                                        </div>
-                                        <div data-container="">
-                                                <label data-label="" class="ThemeGrid_Width5">
-                                                        <span style="font-weight: bold;">Hora de Entrada</span>
-                                                </label>
-                                                <span class="input-time">
-                                                        <input data-input="" name="entrada" value="00:00" class="form-control OSFillParent" type="time" aria-required="false" id="entrada">
-                                                </span>
-                                        </div>
-                                        <div data-container="">
-                                                <label data-label="" class="ThemeGrid_Width5">
-                                                        <span style="font-weight: bold;">Hora de Saida</span>
-                                                </label>
-                                                <span class="input-time">
-                                                        <input data-input="" name="saida" value="00:00" class="form-control OSFillParent" type="time" aria-required="false" id="saida">
-                                                </span>
-                                        </div>
-                                        <div data-container="">
-                                                <label data-label="" class="ThemeGrid_Width4" for="Dropdown4">
-                                                        <span style="font-weight: bold;">Horas extra</span>
-                                                </label>
-                                                <div id="Input_TimeIn7" class="hidden">
-                                                        <label data-label="" class="ThemeGrid_Width5">
-                                                                <span style="font-weight: bold;">Hora de Entrada</span>
-                                                        </label>
-                                                        <span class="input-time">
-                                                                <input data-input="" value="00:00" name="entrada_extra" class="form-control OSFillParent" type="time" aria-required="false">
-                                                        </span>
-                                                </div>
-                                                <div id="Input_TimeIn6" class="hidden">
-                                                        <label data-label="" class="ThemeGrid_Width5">
-                                                                <span style="font-weight: bold;">Hora de Saida</span>
-                                                        </label>
-                                                        <span class="input-time">
-                                                                <input data-input="" value="00:00" name="saida_extra" class="form-control OSFillParent" type="time" aria-required="false">
-                                                        </span>
-                                                </div>
-                                                <div id="Input_TimeIn6">
-                                                        <label data-label="" class="OSFillParent" for="Checkbox1">Activo</label>
-                                                        <span><input data-checkbox="on" name="status" class="checkbox" type="checkbox" id="Checkbox1"></span>
-                                                </div>
-                                                <br>
-                                                <div data-container="" class="align-items-center display-flex">
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                                                        <button data-button="" name="butao" class="btn btn-primary ThemeGrid_MarginGutter" type="submit" style="background-color: rgb(89, 172, 227);">Adicionar</button>
-                                                </div>
-                                </form>
-                        </div>
-                </div>
+
+ ?>
+ <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body"> 
+        
+        <div data-popup=""  class="popup-dialog popup-dialog" role="dialog" aria-modal="">
+            <div  class="popup-content">
+                
+                <form  method="post" action="processa_andamento.php"  class="form card OSFillParent" id="Form1">
+                    
+                <div data-container="" style="margin-bottom: 20px;">
+                    <div data-container="">
+            <label data-label="" class="ThemeGrid_Width4" for="Dropdown4">
+            <span style="font-weight: bold;">Horas extra</span>
+        </label><div data-container="" class="ThemeGrid_Width5 ThemeGrid_MarginGutter" style="text-align: left;">
+            <span onclick="toggleInpu()">
+                <input data-switch="" class="switch" type="checkbox" id="Switch2" onclick="toggleInpu()"></span>
             </div>
         </div>
+                 <div id="consultaResultado"></div>
+
+              <input type="hidden" value="<?php echo @$id; ?>" name="id_colaborador_extra">
+                <input data-input="" name="codigo_obra" value="<?php echo @$ids_obra; ?>"   class="form-control OSFillParent" type="hidden" aria-required="false"  id="id_obra">
+
+                <?php 
+                
+                $sqlobra =mysqli_query($conexao,"SELECT * FROM obra WHERE codigo = '$ids_obra'");
+                while ($obrarow = mysqli_fetch_assoc($sqlobra)) {
+                   
+                 ?> 
+                <input type="hidden"  name="descricao_extra"  value="<?php echo strtoupper($obrarow['descricao']); ?>">
+                <?php   } ?>
+
+               
+               
+        </div>
+        
+    <div data-container="">
+        <label data-label="" class="ThemeGrid_Width5">
+            <span style="font-weight: bold;">Hora de Entrada</span>
+        </label>
+        <span class="input-time">
+            <input data-input="" name="entrada" value="00:00" class="form-control OSFillParent" type="time" aria-required="false" value="" id="entrada">
+        </span>
     </div>
+    <div data-container="">
+        <label data-label="" class="ThemeGrid_Width5">
+            <span style="font-weight: bold;">Hora de Saida</span>
+        </label><span class="input-time">
+            <input data-input="" name="saida" value="00:00" class="form-control OSFillParent" type="time" aria-required="false" value="" id="saida">
+        </span>
+    </div>
+<div data-container="">
+            <label data-label="" class="ThemeGrid_Width4" for="Dropdown4">
+            <span style="font-weight: bold;">Horas extra</span>
+        </label>
+         
+        
+    <div  id="Input_TimeIn7" class="hidden" >
+                <label data-label="" class="ThemeGrid_Width5">
+                    <span style="font-weight: bold;">Hora de Entrada</span>
+                </label>
+                <span class="input-time">
+                    <input data-input="" value="00:00" name="entrada_extra" class="form-control OSFillParent" type="time" aria-required="false" value="" >
+                </span>
+            </div>
+            <div  id="Input_TimeIn6" class="hidden" >
+                <label data-label="" class="ThemeGrid_Width5">
+                    <span style="font-weight: bold;">Hora de Saida</span>
+                </label><span class="input-time">
+                    <input data-input="" value="00:00" name="saida_extra" class="form-control OSFillParent" type="time" aria-required="false" >
+                </span>
+            </div>
+            <div  id="Input_TimeIn6" >
+                    <label data-label="" class="OSFillParent" for="Checkbox1">Activo</label>
+                    <span><input data-checkbox="on" name="status" class="checkbox" type="checkbox"  id="Checkbox1"></span>
+                   
+            </div>
+<br>
+            
+
+    <div data-container="" class="align-items-center display-flex">
+        
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+      
+        <button data-button=""  name="butao" class="btn btn-primary ThemeGrid_MarginGutter" type="submit" style="background-color: rgb(89, 172, 227);">Adicionar</button>
+
+                <!-- aqui deve verificar se ele esta em uma obra-->
+    </div>
+</form>
 </div>
+        </div></div>
+        </div>
+              </div></div></div>
 
 <div class="modal fade" id="exampleModaltra" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
