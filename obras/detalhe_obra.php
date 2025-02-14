@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="../css/brands.min.css">
   <link rel="stylesheet" href="../css/solid.min.css">
   <link rel="stylesheet" href="../css/fontawesome.css">
-  <script src="script.js"></script>
+  <script src="../js/script.js"></script>
 <?php require "../estilo.php"; ?>
 <?php
 @$ids_obra = $_GET['ids_obra'];
@@ -87,7 +87,7 @@
         <div data-block="DownloadFlow.Download" class="OSBlockWidget" id="$b4">
         <span hidden="">&lt;Download&gt;</span>
         </div>
-        <a data-link="" class="ThemeGrid_MarginGutter" href="download_excel1.php" download="obras.xls">
+        <a data-link="" class="ThemeGrid_MarginGutter" href="download_excel.php" download="obras.xls">
             <i data-icon="" class="icon fa fa-file-excel-o fa-2x"></i>
         </a>
     </div>
@@ -656,7 +656,7 @@ while ($datarow = mysqli_fetch_assoc($sqlidobras)) {
 <script src="../js/jquery.js"></script> 
 <script src="../js/bootstrap.js"></script>
 
-    <script src="filtrocliente.js"></script>
+    <script src="../js/filtrocliente.js"></script>
      <script src="../js/modal.js"></script>
      <script src="../js/time.js"></script>
 
