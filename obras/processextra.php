@@ -1,5 +1,5 @@
 <?php 
-require "conexao.php";
+require "../db/conexao.php";
 
 if (isset($_POST['butao'])) {
 	$id_colaborador_extra = $_POST['id_colaborador_extra'];

@@ -1,5 +1,5 @@
 <?php
-require "config.php";
+require "../db/config.php";
 
 // Verificar se há um cliente selecionado via POST
 $clienteSelecionado = isset($_POST['cliente']) ? $_POST['cliente'] : "";

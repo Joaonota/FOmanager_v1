@@ -44,14 +44,14 @@ $sqlconfi->close();
 // Lógica para logout
 if (isset($_GET['pg']) && $_GET['pg'] === 'sair') {
     session_destroy();
-    header("Location: index.php");
+    header("Location: ../index.php");
     exit;
 }
 
 // Lógica para quebra de sessão
 if (isset($_GET['acao']) && $_GET['acao'] === 'quebra') {
     session_destroy();
-    header("Location: index.php");
+    header("Location: ../index.php");
     exit;
 }
 ?>

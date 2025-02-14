@@ -93,7 +93,7 @@ li {
                                             </div>
                                         </div>
                                         <div data-container=""  style="padding-right: 10px;" class="margin-left-s">
-                                            <a data-link="" href="config.php?acao=quebra" class="OSFillParent" href="" tabindex="-1">
+                                            <a data-link="" href="../db/config.php?acao=quebra" class="OSFillParent" href="" tabindex="-1">
                                                 <i data-icon="" class="icon fa-solid fa-sign-out-alt" id="b4-b2-Icon3">   
                                                 </i>
                                                 <span class="margin-left-s wcag-hide-text">Log out</span>

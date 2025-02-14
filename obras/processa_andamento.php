@@ -10,7 +10,7 @@
 
 <?php 
 
-require 'conexao.php';
+require '../db/conexao.php';
 if (isset($_POST['butao'])) {
     $id_colaborador = $_POST['id_colaborador'];
     $codigo_obra = $_POST['codigo_obra'];
