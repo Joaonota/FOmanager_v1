@@ -65,7 +65,7 @@ li {
                         Adicione mais itens de submenu conforme necessário 
                     </ul>                  -->      
                         
- <a class="ThemeGrid_MarginGutter" data-link="" href="relatorio_extra.php"  role="menuitem" > <i data-icon="" class="icon fa-solid fa-chart-bar" id="b4-b2-Icon3"></i> Relatorio</a>
+ <a class="ThemeGrid_MarginGutter" data-link="" href="../report/relatorio_extra.php"  role="menuitem" > <i data-icon="" class="icon fa-solid fa-chart-bar" id="b4-b2-Icon3"></i> Relatorio</a>
  <a class="ThemeGrid_MarginGutter" data-link="" href="relatorio_extra_dia.php"  role="menuitem" > <i data-icon="" class="icon fa-solid fa-chart-bar" id="b4-b2-Icon3"></i> Relatorio Diario</a>
 
  <a class="ThemeGrid_MarginGutter" data-link="" href="add_categoria.php"  role="menuitem" > <i data-icon="" class="icon fa-solid fa-cog" id="b4-b2-Icon3"></i> Extra</a>
