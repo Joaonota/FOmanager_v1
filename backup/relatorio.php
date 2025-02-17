@@ -120,9 +120,9 @@ while ($row = mysqli_fetch_assoc($mysqlR)) {
         $dataOriginal = $row["data_marcada"];
 
         // Tente formatar a data com diferentes formatos
-        $dataformatada = 'Data inválida'; // Valor padrão
+        $dataformatada = 'Data inv锟斤拷lida'; // Valor padr锟�0锟�0o
 
-        // Formatos que você deseja tentar
+        // Formatos que voc锟斤拷 deseja tentar
         $formatos = ['d/m/Y', 'd-m-Y', 'Y-m-d', 'Y/m/d'];
 
         foreach ($formatos as $formato) {
