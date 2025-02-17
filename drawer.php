@@ -39,7 +39,7 @@ li {
                                         <div data-container="" class="header-logo ph">
                                         <div data-block="Common.ApplicationTitle" class="OSBlockWidget" id="b4-$b1">
                                             <div data-container="" class="application-name display-flex align-items-center full-height" role="button" tabindex="-1" id="b4-b1-ApplicationTitleWrapper" style="cursor: pointer;">
-                                                <img data-image="" class="app-logo" src="img/FOManager.Logo.png" alt="" id="b4-b1-AppLogo" style="height: 32px;"><span data-expression="">FO Manager</span>
+                                                <img data-image="" class="app-logo" src="../img/FOManager.Logo.png" alt="" id="b4-b1-AppLogo" style="height: 32px;"><span data-expression="">FO Manager</span>
                                             </div>
                                         </div>
                                     </div>
@@ -66,10 +66,10 @@ li {
                     </ul>                  -->      
                         
  <a class="ThemeGrid_MarginGutter" data-link="" href="../report/relatorio_extra.php"  role="menuitem" > <i data-icon="" class="icon fa-solid fa-chart-bar" id="b4-b2-Icon3"></i> Relatorio</a>
- <a class="ThemeGrid_MarginGutter" data-link="" href="relatorio_extra_dia.php"  role="menuitem" > <i data-icon="" class="icon fa-solid fa-chart-bar" id="b4-b2-Icon3"></i> Relatorio Diario</a>
+ <a class="ThemeGrid_MarginGutter" data-link="" href="../report/relatorio_extra_dia.php"  role="menuitem" > <i data-icon="" class="icon fa-solid fa-chart-bar" id="b4-b2-Icon3"></i> Relatorio Diario</a>
 
- <a class="ThemeGrid_MarginGutter" data-link="" href="add_categoria.php"  role="menuitem" > <i data-icon="" class="icon fa-solid fa-cog" id="b4-b2-Icon3"></i> Extra</a>
- <a class="ThemeGrid_MarginGutter" data-link="" href="centro_custo.php"  role="menuitem" > <i data-icon="" class="icon fa-solid fa-map-marker-alt" id="b4-b2-Icon3"></i> Centro de Custo</a>
+ <a class="ThemeGrid_MarginGutter" data-link="" href="../extra/add_categoria.php"  role="menuitem" > <i data-icon="" class="icon fa-solid fa-cog" id="b4-b2-Icon3"></i> Extra</a>
+ <a class="ThemeGrid_MarginGutter" data-link="" href="../extra/centro_custo.php"  role="menuitem" > <i data-icon="" class="icon fa-solid fa-map-marker-alt" id="b4-b2-Icon3"></i> Centro de Custo</a>
                                    <!--    <ul style="height: 110px;" class="submenu" id="submenu-extra">
                         <li><a  class="ThemeGrid_MarginGutter" data-link=""  role="menuitem" tabindex="-1" href="add_obra.php">Adicionar Localizcao</a></li>
                         <li><a  class="ThemeGrid_MarginGutter" data-link=""  role="menuitem" tabindex="-1" href="Lista_obra.php">Categoria</a></li>
@@ -87,7 +87,7 @@ li {
                                 <div data-block="Common.UserInfo" class="OSBlockWidget" id="b4-$b2">
                                     <div data-container="" class="user-info">
                                         <div data-container="" >
-                                            <img data-image="" class="img-circle" src="img/FOManager.User.png" alt="" style="width: 24px; height: 24px;">
+                                            <img data-image="" class="img-circle" src="../img/FOManager.User.png" alt="" style="width: 24px; height: 24px;">
                                             <div data-container="" class="margin-left-s">
                                                 <span data-expression=""><?php echo $nome;?> <?php echo  $apelido;  ?></span>
                                             </div>
