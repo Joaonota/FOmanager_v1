@@ -1,7 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<?php require "estilo.php" ?>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--link rel="stylesheet" href="css/FOManager.MainFlow.css"-->
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/script.css">
+     <link rel="stylesheet" href="../css/aba.css">
+    <link rel="stylesheet" href="../css/Basic.css">
+  <link rel="stylesheet" href="../css/FOManager.FOManager.css">
+  <link rel="stylesheet" href="../css/OutSystemsReactWidgets.css">
+  <link rel="stylesheet" href="../css/OutSystemsUI.OutSystemsUI.css">
+  <link rel="stylesheet" href="../css/OutSystemsUI.OutSystemsUI.extra.css">
+  <link rel="stylesheet" href="../css/all.min.css">
+  <link rel="stylesheet" href="../css/all.css">
+  <link rel="stylesheet" href="../css/brands.min.css">
+  <link rel="stylesheet" href="../css/solid.min.css">
+  <link rel="stylesheet" href="../css/fontawesome.css">
+  <script src="../js/script.js"></script>
+<?php require "../estilo.php" ?>
 <title>Adicionar Categoria</title>
 <body>
 <div id="reactContainer">
@@ -10,7 +27,7 @@
     <div data-block="Common.Layout" class="OSBlockWidget" id="$b1">
     <div   class="layout layout-side layout-native ios-bounce aside" id="b1-LayoutWrapper">
         <!-- drawer-->
-    <?php require "drawer.php" ?>
+    <?php require "../drawer.php" ?>
 
 				<h1 data-advancedhtml="" class="header-title">
 					<div class="OSInline" id="b1-Title">
@@ -33,8 +50,12 @@
 				$descicao = $_POST['descicao'];
 				$status = $_POST['status'];
 
-				$mysql = mysqli_query($conexao,"INSERT Into centro_custo (descicao,status) VALUES ('$descicao','$status')");
-				echo "<script>alert('Centro de Custo Adicionada  com sucesso');</script>";
+				if (!empty($descicao) && !empty($status)) {
+					$mysql = mysqli_query($conexao,"INSERT INTO centro_custo (descicao, status) VALUES ('$descicao', '$status')");
+					echo "<script>alert('Centro de Custo Adicionada com sucesso');</script>";
+				} else {
+					echo "<script>alert('Por favor, preencha todos os campos');</script>";
+				}
 
 
 			}
@@ -137,16 +158,6 @@
 			</div>
 
 		</div>
-
-		<footer data-advancedhtml="" role="contentinfo" class="content-bottom">
-			<div class="footer ph" id="b1-Bottom">
-				<div data-block="Common.BottomBar" class="OSBlockWidget" id="$b3">
-					<div data-container="" class="bottom-bar-wrapper">
-						<div data-container="" class="bottom-bar ph"></div>
-					</div>
-				</div>
-			</div>
-		</footer>
 	</div>
 	<div data-container="" class="offline-data-sync">
 		<div data-block="Common.OfflineDataSyncEvents" class="OSBlockWidget" id="b1-$b2">

@@ -1,5 +1,5 @@
 <?php 
-require "conexao.php";
+require "../db/conexao.php";
 
 $edita = $_GET['edita'];
 if (isset($_POST['butao'])) {

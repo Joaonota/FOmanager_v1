@@ -1,5 +1,7 @@
 <?php
-require 'vendor/autoload.php';
+require '../vendor/autoload.php';
+require '../db/conexao.php';
+
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
@@ -18,7 +20,7 @@ $sheet->setCellValue('E1', 'Habilidades');
 $sheet->setCellValue('F1', 'Status');
 
 
-$conn = new mysqli('localhost', 'shisselc_nota', '.8V3hGork=8T', 'shisselc_fomanager');
+$conn = Conexao();
 if ($conn->connect_error) {
     die("Erro ao conectar ao banco de dados: " . $conn->connect_error);
 }

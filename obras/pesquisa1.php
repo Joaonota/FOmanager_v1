@@ -1,5 +1,5 @@
 <?php
-require "estilo.php";
+require "../estilo.php";
 
 
 if(isset($_POST['query'])) {

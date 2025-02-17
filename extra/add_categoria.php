@@ -72,7 +72,7 @@
 					</div>
 
 						<div data-container="" style="margin-top: 20px;">
-							<button data-button="" class="btn" type="button">Voltar</button>
+						<a href="javascript:history.back()" data-button="" class="btn" type="button">Voltar</a>
 						<button data-button="" name="butao" class="btn btn-primary ThemeGrid_MarginGutter" type="submit">Guardar</button>
 						</div>
 					</form>
@@ -138,25 +138,9 @@
 
 		</div>
 
-		<footer data-advancedhtml="" role="contentinfo" class="content-bottom">
-			<div class="footer ph" id="b1-Bottom">
-				<div data-block="Common.BottomBar" class="OSBlockWidget" id="$b3">
-					<div data-container="" class="bottom-bar-wrapper">
-						<div data-container="" class="bottom-bar ph"></div>
-					</div>
-				</div>
-			</div>
-		</footer>
+		
 	</div>
-	<div data-container="" class="offline-data-sync">
-		<div data-block="Common.OfflineDataSyncEvents" class="OSBlockWidget" id="b1-$b2">
-			<div data-block="Private.OfflineDataSyncCore" class="OSBlockWidget" id="b1-b2-$b1">
-				<div data-block="Private.NetworkStatusChanged" class="OSBlockWidget" id="b1-b2-b1-$b1">
-					<div data-container=""></div>
-				</div>
-			</div>
-		</div>
-	</div>
+	
 </div>
 </div>
 </div>

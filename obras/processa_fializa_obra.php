@@ -1,5 +1,5 @@
 <?php 
-require "config.php";
+require "../db/config.php";
 
 if (isset($_POST['butao'])) {
 	$idobra = $_GET['idobra'];

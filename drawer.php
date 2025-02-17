@@ -76,7 +76,7 @@ li {
                         Adicione mais itens de submenu conforme necessário 
                     </ul>   -->         
 
-<a class="ThemeGrid_MarginGutter" data-link=""  role="menuitem"  href="lista_user.php"> <i data-icon="" class="icon fa-solid fa-users-cog" id="b4-b2-Icon3"></i> Usuarios</a>
+<a class="ThemeGrid_MarginGutter" data-link=""  role="menuitem"  href="../users/lista_user.php"> <i data-icon="" class="icon fa-solid fa-users-cog" id="b4-b2-Icon3"></i> Usuarios</a>
                                    <!--    <ul style="height: 110px;" class="submenu" id="submenu-users">
                         <li><a  class="ThemeGrid_MarginGutter" data-link=""  role="menuitem" tabindex="-1" href="add_users.php">Adicionar Usuario</a></li>
                         <li><a  class="ThemeGrid_MarginGutter" data-link=""  role="menuitem" tabindex="-1" href="Lista_obra.php">Listar Usuario</a></li>

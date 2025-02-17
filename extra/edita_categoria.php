@@ -1,7 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<?php require "estilo.php"; ?>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--link rel="stylesheet" href="css/FOManager.MainFlow.css"-->
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/script.css">
+     <link rel="stylesheet" href="../css/aba.css">
+    <link rel="stylesheet" href="../css/Basic.css">
+  <link rel="stylesheet" href="../css/FOManager.FOManager.css">
+  <link rel="stylesheet" href="../css/OutSystemsReactWidgets.css">
+  <link rel="stylesheet" href="../css/OutSystemsUI.OutSystemsUI.css">
+  <link rel="stylesheet" href="../css/OutSystemsUI.OutSystemsUI.extra.css">
+  <link rel="stylesheet" href="../css/all.min.css">
+  <link rel="stylesheet" href="../css/all.css">
+  <link rel="stylesheet" href="../css/brands.min.css">
+  <link rel="stylesheet" href="../css/solid.min.css">
+  <link rel="stylesheet" href="../css/fontawesome.css">
+  <script src="../js/script.js"></script>
+<?php require "../estilo.php" ?>
 <title>Adicionar Categoria</title>
 <body>
 <div id="reactContainer">
@@ -13,7 +30,7 @@
     <?php 
 
     $id= $_GET['id'];
-    require "drawer.php"; ?>
+    require "../drawer.php"; ?>
 
 				<h1 data-advancedhtml="" class="header-title">
 					<div class="OSInline" id="b1-Title">
@@ -33,10 +50,14 @@
 
 			if (isset($_POST['butao'])) {
 				
-				$categoria = $_POST['categoria'];
+				$categoria = trim($_POST['categoria']);
 
-				$mysql = mysqli_query($conexao,"UPDATE categoria_cola set categoria = '$categoria' where id_categoria_cola = '$id'");
-				echo "<script>alert('categoria Adicionada  com sucesso');</script>";
+				if (empty($categoria)) {
+					echo "<script>alert('O campo categoria não pode estar vazio');</script>";
+				} else {
+					$mysql = mysqli_query($conexao,"UPDATE categoria_cola set categoria = '$categoria' where id_categoria_cola = '$id'");
+					echo "<script>alert('Categoria atualizada com sucesso');</script>";
+				}
 
 
 			}
@@ -61,7 +82,7 @@
 				<?php } ?>
 
 						<div data-container="" style="margin-top: 20px;">
-							<a href="add_categoria.php" data-button="" class="btn" type="button">Voltar</a>
+							<a href="javascript:history.back()" data-button="" class="btn" type="button">Voltar</a>
 						<button data-button="" name="butao" class="btn btn-primary ThemeGrid_MarginGutter" type="submit">Guardar</button>
 						</div>
 					</form>
