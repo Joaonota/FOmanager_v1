@@ -1,5 +1,5 @@
 <?php 
-require "conexao.php";
+require "../db/conexao.php";
 
 $hora = $_GET['hora'];
 if (isset($_POST['butao'])) {

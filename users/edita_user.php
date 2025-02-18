@@ -1,7 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<?php require "estilo.php" ?>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--link rel="stylesheet" href="css/FOManager.MainFlow.css"-->
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/script.css">
+     <link rel="stylesheet" href="../css/aba.css">
+    <link rel="stylesheet" href="../css/Basic.css">
+  <link rel="stylesheet" href="../css/FOManager.FOManager.css">
+  <link rel="stylesheet" href="../css/OutSystemsReactWidgets.css">
+  <link rel="stylesheet" href="../css/OutSystemsUI.OutSystemsUI.css">
+  <link rel="stylesheet" href="../css/OutSystemsUI.OutSystemsUI.extra.css">
+  <link rel="stylesheet" href="../css/all.min.css">
+  <link rel="stylesheet" href="../css/all.css">
+  <link rel="stylesheet" href="../css/brands.min.css">
+  <link rel="stylesheet" href="../css/solid.min.css">
+  <link rel="stylesheet" href="../css/fontawesome.css">
+  <script src="../js/script.js"></script>
+<?php require "../estilo.php" ?>
 <title>Adicionar Usuario</title>
 <body>
 <?php 
@@ -15,7 +32,7 @@ $id = $_GET['id'];
     <div data-block="Common.Layout" class="OSBlockWidget" id="$b1">
     <div   class="layout layout-side layout-native ios-bounce aside" id="b1-LayoutWrapper">
         <!-- drawer-->
-    <?php require "drawer.php" ?>
+    <?php require "../drawer.php" ?>
 
 				<h1 data-advancedhtml="" class="header-title">
 					<div class="OSInline" id="b1-Title">
@@ -45,8 +62,12 @@ $id = $_GET['id'];
 				$cell = $_POST['cell'];
 				$painel = $_POST['painel'];
 
-				$mysql = mysqli_query($conexao,"UPDATE acesso SET nome = '$nome', apelido = '$apelido', username = '$username', password = '$password', status = 'ativo', cell = '$cell', painel = '$painel' WHERE id_user = '$id'");
-				echo "<script>alert('usuario Actualizado com sucesso');</script>";
+				if (empty($nome) || empty($apelido) || empty($username) || empty($password) || empty($cell) || empty($painel)) {
+					echo "<script>alert('Por favor, preencha todos os campos.');</script>";
+				} else {
+					$mysql = mysqli_query($conexao,"UPDATE acesso SET nome = '$nome', apelido = '$apelido', username = '$username', password = '$password', status = 'ativo', cell = '$cell', painel = '$painel' WHERE id_user = '$id'");
+					echo "<script>alert('Usuario atualizado com sucesso');</script>";
+				}
 
 
 			}

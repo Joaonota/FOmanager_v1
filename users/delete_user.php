@@ -1,5 +1,5 @@
 <?php
-require_once("conexao.php");
+require_once("../db/conexao.php");
 if(isset($_GET['id'])) {
     $id_user = $_GET['id'];
     $sql = "DELETE FROM acesso WHERE id_user = '$id_user'";

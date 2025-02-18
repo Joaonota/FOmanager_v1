@@ -87,7 +87,7 @@
 						<div data-container="" style="margin-top: 20px;">
 							
 						<button data-button="" name="butao" class="btn btn-primary ThemeGrid_MarginGutter" type="submit">Guardar</button>
-						<a data-button="" href="lista_obra.php?id=<?php echo $id_user; ?>" class="btn">Voltar</a>
+                  <a data-button="" href="javascript:history.back()" class="btn">Voltar</a>
 						</div>
 					</form>
 					<div data-container="" style="margin-top: 20px;">

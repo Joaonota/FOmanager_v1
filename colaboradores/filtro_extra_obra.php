@@ -1,5 +1,5 @@
 <?php
-require "config.php";
+require "../db/config.php";
 
 $resultados_por_pagina = 5;
 

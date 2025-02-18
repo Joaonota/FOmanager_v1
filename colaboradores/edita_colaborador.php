@@ -1,9 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--link rel="stylesheet" href="css/FOManager.MainFlow.css"-->
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/script.css">
+     <link rel="stylesheet" href="../css/aba.css">
+    <link rel="stylesheet" href="../css/Basic.css">
+  <link rel="stylesheet" href="../css/FOManager.FOManager.css">
+  <link rel="stylesheet" href="../css/OutSystemsReactWidgets.css">
+  <link rel="stylesheet" href="../css/OutSystemsUI.OutSystemsUI.css">
+  <link rel="stylesheet" href="../css/OutSystemsUI.OutSystemsUI.extra.css">
+  <link rel="stylesheet" href="../css/all.min.css">
+  <link rel="stylesheet" href="../css/all.css">
+  <link rel="stylesheet" href="../css/brands.min.css">
+  <link rel="stylesheet" href="../css/solid.min.css">
+  <link rel="stylesheet" href="../css/fontawesome.css">
+  <script src="../js/script.js"></script>
 <?php
 $id_d_cola = $_GET['id_d_cola'];
- require "estilo.php"; ?>
+ require "../estilo.php"; ?>
 <title>Editar Colaborador</title>
 <body>
 <div id="reactContainer">
@@ -12,7 +29,7 @@ $id_d_cola = $_GET['id_d_cola'];
     <div data-block="Common.Layout" class="OSBlockWidget" id="$b1">
     <div   class="layout layout-side layout-native ios-bounce aside" id="b1-LayoutWrapper">
         <!-- drawer-->
-    <?php require "drawer.php" ?>
+    <?php require "../drawer.php" ?>
 <h1 data-advancedhtml="" class="header-title">
     <div class="OSInline" id="b1-Title">
         <span style="font-weight: bold;">Editar Colaborador</span>
@@ -198,5 +215,5 @@ $id_d_cola = $_GET['id_d_cola'];
 
 </body>
 <script src="js/menusub.js"></script> 
-<script src="js/filtro_obras_user.js"></script> 
+<script src="../js/filtro_obras_user.js"></script> 
 </html>
