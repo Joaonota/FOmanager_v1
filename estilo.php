@@ -17,7 +17,7 @@
 
 
 </head>
-  <script src="js/script.js"></script>
+
    
   
   <?php require "db/config.php"; ?>

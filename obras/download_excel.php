@@ -14,13 +14,24 @@ if ($conn->connect_error) {
     die("Erro ao conectar ao banco de dados: " . $conn->connect_error);
 }
 
-$sql = "SELECT hora_extra_obra.id_extra, hora_extra_obra.codigo_obra_extra, hora_extra_obra.descricao_extra,
-               hora_extra_obra.colaborador_extra, hora_extra_obra.entrada, hora_extra_obra.saida,
-               hora_extra_obra.entrada_extra, hora_extra_obra.saida_extra, hora_extra_obra.data_marcada,
-               colaborador.cargo, colaborador.custo, obra.localizacao
-        FROM hora_extra_obra
-        JOIN colaborador ON hora_extra_obra.id_colaborador_extra = colaborador.id_colaborador
-        JOIN obra ON hora_extra_obra.codigo_obra_extra = obra.codigo";
+$sql = "SELECT 
+    hora_extra_obra.id_extra, 
+    hora_extra_obra.codigo_obra_extra, 
+    hora_extra_obra.descricao_extra,
+    hora_extra_obra.colaborador_extra, 
+    hora_extra_obra.entrada, 
+    hora_extra_obra.saida,
+    hora_extra_obra.entrada_extra, 
+    hora_extra_obra.saida_extra, 
+    hora_extra_obra.data_marcada,
+    colaborador.cargo, 
+    colaborador.custo, 
+    obra.localizacao,
+    hora_extra_obra.datatime_extra
+FROM hora_extra_obra
+JOIN colaborador ON hora_extra_obra.id_colaborador_extra = colaborador.id_colaborador
+JOIN obra ON hora_extra_obra.codigo_obra_extra = obra.codigo
+ORDER BY hora_extra_obra.datatime_extra DESC";
 
 $result = $conn->query($sql);
 
