@@ -1,4 +1,4 @@
-
+<script src="js/script.js"></script>
 
 <div>
    <div  id="transitionContainer">
@@ -500,7 +500,7 @@ $sqlcolas =mysqli_query($conexao,"SELECT * FROM obra WHERE id_obra = '$obra_id'"
 
         // Faz uma solicitação AJAX para buscar os resultados da pesquisa no servidor
         $.ajax({
-            url: 'pesquisa1.php', // Caminho para o script PHP que busca os resultados da pesquisa
+            url: '../obras/pesquisa1.php', // Caminho para o script PHP que busca os resultados da pesquisa
             method: 'POST',
             data: { query: query }, // Envia o termo de pesquisa para o servidor
             success: function(response) {

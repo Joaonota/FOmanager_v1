@@ -26,13 +26,13 @@ li {
                                         <div data-container="" class="header-logo ph">
                                         <div data-block="Common.ApplicationTitle" class="OSBlockWidget" id="b4-$b1">
                                             <div data-container="" class="application-name display-flex align-items-center full-height" role="button" tabindex="-1" id="b4-b1-ApplicationTitleWrapper" style="cursor: pointer;">
-                                                <img data-image="" class="app-logo" src="img/FOManager.Logo.png" alt="" id="b4-b1-AppLogo" style="height: 32px;"><span data-expression="">FOManager</span>
+                                                <img data-image="" class="app-logo" src="../img/FOManager.Logo.png" alt="" id="b4-b1-AppLogo" style="height: 32px;"><span data-expression="">FOManager</span>
                                             </div>
                                         </div>
                                     </div>
                                     <div data-container="" class="app-menu-links" role="menubar" id="b4-PageLinks">
                 
-        <a class="ThemeGrid_MarginGutter" data-link="" href="lista_obra.php?id=<?php echo $id_user ?>"> <i data-icon="" class="icon fa fa-trowel-bricks fa-1x" id="b4-b2-Icon3"></i> Obras</a>
+        <a class="ThemeGrid_MarginGutter" data-link="" href="../obras/lista_obra.php?id=<?php echo $id_user ?>"> <i data-icon="" class="icon fa fa-trowel-bricks fa-1x" id="b4-b2-Icon3"></i> Obras</a>
                                   
                         
  <a class="ThemeGrid_MarginGutter" data-link="" href="relatorio_extra.php"  role="menuitem" > <i data-icon="" class="icon fa fa-file fa-1x" id="b4-b2-Icon3"></i> Relatorio</a>
@@ -43,7 +43,7 @@ li {
                                 <div data-block="Common.UserInfo" class="OSBlockWidget" id="b4-$b2">
                                     <div data-container="" class="user-info">
                                         <div data-container="" >
-                                            <img data-image="" class="img-circle" src="img/FOManager.User.png" alt="" style="width: 24px; height: 24px;">
+                                            <img data-image="" class="img-circle" src="../img/FOManager.User.png" alt="" style="width: 24px; height: 24px;">
                                             <div data-container="" class="margin-left-s">
                                                 <span data-expression=""><?php echo $nome;?> <?php echo  $apelido;  ?></span>
                                             </div>

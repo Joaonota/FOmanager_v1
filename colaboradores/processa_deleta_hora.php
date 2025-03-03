@@ -1,5 +1,5 @@
 <?php 
-require "config.php";
+require "../db/config.php";
   if (@$_GET['func']== 'deletar' ) {
     $id_hora = $_GET['id_hora'];
     $id_d_cola = $_GET['id_d_cola'];
