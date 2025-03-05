@@ -83,7 +83,7 @@ if ($result->num_rows > 0) {
               ->setCellValue('D' . $rowIndex, $row['colaborador_extra'])
               ->setCellValue('E' . $rowIndex, $row['entrada'])
               ->setCellValue('F' . $rowIndex, $row['saida'])
-              ->setCellValue('G' . $rowIndex, '1:30')
+              ->setCellValue('G' . $rowIndex, '1:00')
               ->setCellValue('H' . $rowIndex, '=IF(E' . $rowIndex . '<=F' . $rowIndex . ', TEXT(F' . $rowIndex . '-E' . $rowIndex . ',"hh:mm"), TEXT(1-(E' . $rowIndex . '-F' . $rowIndex . '),"hh:mm"))')
               ->setCellValue('I' . $rowIndex, $row['entrada_extra'])
               ->setCellValue('J' . $rowIndex, $row['saida_extra'])

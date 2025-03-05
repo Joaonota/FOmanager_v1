@@ -1,4 +1,4 @@
-<script src="js/script.js"></script>
+
 
 <div>
    <div  id="transitionContainer">
@@ -6,7 +6,8 @@
     <div data-block="Common.Layout" class="OSBlockWidget" id="$b1">
     <div   class="layout layout-side layout-native ios-bounce aside" id="b1-LayoutWrapper">
         <!-- drawer-->
-    <?php require "drawer.php"; ?>
+    <?php require "../drawer.php"; ?>
+    <!-- drawer-->
             <h1 data-advancedhtml="" class="header-title">
 
             <div class="OSInline" id="b1-Title">
@@ -481,9 +482,9 @@ $sqlcolas =mysqli_query($conexao,"SELECT * FROM obra WHERE id_obra = '$obra_id'"
    
 
    
-    <script src="js/aba.js"></script> 
-  <script src="js/modal.js"></script>
-  <script src="js/jquery.js"></script>
+    <script src="../js/aba.js"></script> 
+  <script src="../js/modal.js"></script>
+  <script src="../js/jquery.js"></script>
   <script>
  $(document).ready(function() {
     var initialResults = $('#initialData').html();

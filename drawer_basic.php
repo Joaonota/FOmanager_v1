@@ -26,7 +26,7 @@ li {
                                         <div data-container="" class="header-logo ph">
                                         <div data-block="Common.ApplicationTitle" class="OSBlockWidget" id="b4-$b1">
                                             <div data-container="" class="application-name display-flex align-items-center full-height" role="button" tabindex="-1" id="b4-b1-ApplicationTitleWrapper" style="cursor: pointer;">
-                                                <img data-image="" class="app-logo" src="img/FOManager.Logo.png" alt="" id="b4-b1-AppLogo" style="height: 32px;"><span data-expression="">FOManager</span>
+                                                <img data-image="" class="app-logo" src="../img/FOManager.Logo.png" alt="" id="b4-b1-AppLogo" style="height: 32px;"><span data-expression="">FOManager</span>
                                             </div>
                                         </div>
                                     </div>
@@ -35,7 +35,7 @@ li {
         <a class="ThemeGrid_MarginGutter" data-link="" href="lista_obra.php?id=<?php echo $id_user ?>"> <i data-icon="" class="icon fa fa-trowel-bricks fa-1x" id="b4-b2-Icon3"></i> Obras</a>
                                   
                         
- <a class="ThemeGrid_MarginGutter" data-link="" href="relatorio_extra.php"  role="menuitem" > <i data-icon="" class="icon fa fa-file fa-1x" id="b4-b2-Icon3"></i> Relatorio</a>
+ <a class="ThemeGrid_MarginGutter" data-link="" href="../report/relatorio_extra.php"  role="menuitem" > <i data-icon="" class="icon fa fa-file fa-1x" id="b4-b2-Icon3"></i> Relatorio</a>
 
 
                                 </div>
@@ -43,13 +43,13 @@ li {
                                 <div data-block="Common.UserInfo" class="OSBlockWidget" id="b4-$b2">
                                     <div data-container="" class="user-info">
                                         <div data-container="" >
-                                            <img data-image="" class="img-circle" src="img/FOManager.User.png" alt="" style="width: 24px; height: 24px;">
+                                            <img data-image="" class="img-circle" src="../img/FOManager.User.png" alt="" style="width: 24px; height: 24px;">
                                             <div data-container="" class="margin-left-s">
                                                 <span data-expression=""><?php echo $nome;?> <?php echo  $apelido;  ?></span>
                                             </div>
                                         </div>
                                         <div data-container=""  style="padding-right: 10px;" class="margin-left-s">
-                                            <a data-link="" href="config.php?acao=quebra" class="OSFillParent" href="" tabindex="-1">
+                                            <a data-link="" href="../db/config.php?acao=quebra" class="OSFillParent" href="" tabindex="-1">
                                                 <i data-icon="" class="icon fa fa-sign-out fa-1x" id="b4-b2-Icon3">   
                                                 </i>
                                                 <span class="margin-left-s wcag-hide-text">Log out</span>

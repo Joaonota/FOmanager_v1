@@ -4,7 +4,7 @@
     <div data-block="Common.Layout" class="OSBlockWidget" id="$b1">
     <div   class="layout layout-side layout-native ios-bounce aside" id="b1-LayoutWrapper">
         <!-- drawer-->
-    <?php require "drawer.php"; ?>
+    <?php require "../drawer.php"; ?>
             <h1 data-advancedhtml="" class="header-title">
 
             <div class="OSInline" id="b1-Title">

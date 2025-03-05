@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="../css/brands.min.css">
   <link rel="stylesheet" href="../css/solid.min.css">
   <link rel="stylesheet" href="../css/fontawesome.css">
-  <script src="../js/script.js"></script>
+  <script src="js/script.js"></script>
 <?php require "../estilo.php"; ?>
 
 <style>
