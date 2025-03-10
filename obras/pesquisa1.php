@@ -4,7 +4,7 @@ require "../estilo.php";
 
 if(isset($_POST['query'])) {
     $search = $_POST['query'];
-    $sql = "SELECT * FROM obra WHERE codigo LIKE '%$search%' or cliente  LIKE '%$search%' or datai  LIKE '%$search%' or dataf  LIKE '%$search%'";
+    $sql = "SELECT * FROM obra WHERE codigo LIKE '%$search%' or cliente  LIKE '%$search%' or datai  LIKE '%$search%' or dataf  LIKE '%$search%' ORDER BY codigo ASC";
     $result = mysqli_query($conexao, $sql);
 
     if(mysqli_num_rows($result) > 0) {
