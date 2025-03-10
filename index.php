@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/OutSystemsUI.OutSystemsUI.css">
     <link rel="stylesheet" href="css/OutSystemsUI.OutSystemsUI.extra.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="img/Logo1.ico" href="img/Logo1.ico">
     <style>
         /* Estilos responsivos */
         .login-form {
@@ -96,6 +97,7 @@
             }
         }
     </style>
+    <title>Login</title>
 </head>
 <?php require "db/conexao.php" ?>
 <body class="windows desktop is-ltr" style="--header-size-content: 40px; --footer-height: 56px;">
