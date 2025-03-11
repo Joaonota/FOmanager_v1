@@ -144,7 +144,7 @@ $limite = 20;
 $pagina= isset($_GET['pagina']) ? (int) $_GET['pagina'] : 1;
 $inicio = ($pagina - 1) * $limite;
 @$id = $_GET['id'];
- $mysqlshow = mysqli_query($conexao,"SELECT  * FROM obra where status = 'ativo' LIMIT $inicio,$limite ");
+$mysqlshow = mysqli_query($conexao,"SELECT * FROM obra WHERE status = 'ativo' ORDER BY datatime DESC LIMIT $inicio, $limite");
 while ($rows= mysqli_fetch_assoc($mysqlshow)) {
                        // code...
                    
@@ -663,14 +663,17 @@ $sqlcolas =mysqli_query($conexao,"SELECT * FROM obra WHERE id_obra = '$obra_id'"
 </div>
 </form>
     <?php } ?> 
-<footer data-advancedhtml="" role="contentinfo" class="content-bottom">
-    <div class="footer ph" id="b1-Bottom">
-        <div data-block="Common.BottomBar" class="OSBlockWidget" id="$b12">
-            <div data-container="" class="bottom-bar-wrapper"><div data-container="" class="bottom-bar ph"></div>
-        </div>
-    </div>
-</div>
-</footer>
+    <footer data-advancedhtml="" role="contentinfo" class="content-bottom">
+			<div class="footer ph" id="b1-Bottom">
+				<div data-block="Common.BottomBar" class="OSBlockWidget" id="$b3">
+					<div data-container="" class="bottom-bar-wrapper">
+						<div data-container="" class="bottom-bar ph text-center" style="background-color: white; color: black;">
+							<p style="color: black; font-weight: bold;">&copy; <?php echo date("Y"); ?> All rights reserved. Versão 2.0</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
 </div>
 <div data-container="" class="offline-data-sync">
     <div data-block="Common.OfflineDataSyncEvents" class="OSBlockWidget" id="b1-$b2">

@@ -14,6 +14,9 @@
   <link rel="stylesheet" href="css/brands.min.css">
   <link rel="stylesheet" href="css/solid.min.css">
   <link rel="stylesheet" href="css/fontawesome.css">
+  <link rel="icon" type="img/Logo1.ico" href="img/Logo1.ico">
+  <link rel="icon" type="img/Logo1.ico" href="../img/Logo1.ico">
+  
 
 
 </head>

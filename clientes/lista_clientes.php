@@ -53,10 +53,7 @@
 
         $mysqlmostra = mysqli_query($conexao, "SELECT * FROM clientes");
         while ($rows = mysqli_fetch_assoc($mysqlmostra)) {
-       
-
-
-
+    
          ?>
             <div data-list="" class="list list-group OSFillParent" style="position: relative;">
                 
@@ -82,9 +79,6 @@
 <div class="tag border-radius-rounded background-primary background-red-lightest text-red-darker OSInline" id="l1-61_25-b4-Tag"><?php echo $rows['status']; ?></div>
 <?php } ?>
 
-
-
-                
             </div>
 
         </div>

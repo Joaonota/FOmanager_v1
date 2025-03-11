@@ -139,7 +139,9 @@
 			<div class="footer ph" id="b1-Bottom">
 				<div data-block="Common.BottomBar" class="OSBlockWidget" id="$b3">
 					<div data-container="" class="bottom-bar-wrapper">
-						<div data-container="" class="bottom-bar ph"></div>
+						<div data-container="" class="bottom-bar ph text-center" style="background-color: white; color: black;">
+							<p style="color: black; font-weight: bold;">&copy; <?php echo date("Y"); ?> All rights reserved. Versão 2.0</p>
+						</div>
 					</div>
 				</div>
 			</div>
