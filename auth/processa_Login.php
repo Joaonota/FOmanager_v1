@@ -18,7 +18,7 @@ require "../db/conexao.php";
                           $conta_sqla= mysqli_num_rows($sqlL);
                           if ($conta_sqla  <=0) {
                             echo "<script type='text/javascript'>alert('A Username ou  senha estao incorreccto ');</script>";
-                            echo "<script type='text/javascript'>window.location.href ='index.php';</script>";
+                            echo "<script type='text/javascript'>window.location.href ='../index.php';</script>";
                           }else{
                             while ($re1 =mysqli_fetch_assoc($sqlL)) {
                               

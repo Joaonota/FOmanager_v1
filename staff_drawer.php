@@ -35,7 +35,7 @@ li {
         <a class="ThemeGrid_MarginGutter" data-link="" href="../obras/lista_obra.php?id=<?php echo $id_user ?>"> <i data-icon="" class="icon fa fa-trowel-bricks fa-1x" id="b4-b2-Icon3"></i> Obras</a>
                                   
                         
- <a class="ThemeGrid_MarginGutter" data-link="" href="relatorio_extra.php"  role="menuitem" > <i data-icon="" class="icon fa fa-file fa-1x" id="b4-b2-Icon3"></i> Relatorio</a>
+ <a class="ThemeGrid_MarginGutter" data-link="" href="../report/relatorio_extra.php"  role="menuitem" > <i data-icon="" class="icon fa fa-file fa-1x" id="b4-b2-Icon3"></i> Relatorio</a>
 
 
                                 </div>
