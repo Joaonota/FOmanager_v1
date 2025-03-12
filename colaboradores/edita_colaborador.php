@@ -175,7 +175,7 @@ $id_d_cola = $_GET['id_d_cola'];
     </i>
 </a>
 
- <a data-link="" href="relatorio.php?id=<?php echo  $id_d_cola; ?>">
+ <a data-link="" href="../report/relatorio.php?id=<?php echo  $id_d_cola; ?>">
             <i data-icon="" class="icon fa fa-file-pdf-o fa-2x" style="color: rgb(245, 160, 74); font-size: 38px;">
         
     </i>

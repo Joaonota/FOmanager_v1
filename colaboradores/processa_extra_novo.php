@@ -1,5 +1,5 @@
 <?php 
-require "conexao.php";
+require "../db/conexao.php";
 
 if (isset($_POST['butao'])) {
 	$codigo_obra_extra = $_POST['codigo_obra_extra'];
