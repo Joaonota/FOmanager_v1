@@ -19,7 +19,7 @@ $sql = "SELECT DISTINCT hora_extra_obra.id_extra, hora_extra_obra.codigo_obra_ex
 FROM hora_extra_obra 
 JOIN colaborador ON hora_extra_obra.id_colaborador_extra = colaborador.id_colaborador 
 JOIN obra ON hora_extra_obra.codigo_obra_extra = obra.codigo 
-WHERE codigo_obra_extra = '$obra'";
+WHERE codigo_obra_extra = '$obra' ORDER BY CAST(codigo_obra_extra AS INTEGER) ASC";
 $result = $conn->query($sql);
 
 // Cria uma nova planilha
@@ -61,7 +61,7 @@ if ($result->num_rows > 0) {
               ->setCellValue('D' . $rowIndex, $row['colaborador_extra'])
               ->setCellValue('E' . $rowIndex, $row['entrada'])
               ->setCellValue('F' . $rowIndex, $row['saida'])
-              ->setCellValue('G' . $rowIndex, '1:30') // Hora de almoço fixa
+              ->setCellValue('G' . $rowIndex, '1:00') // Hora de almoço fixa
               ->setCellValue('H' . $rowIndex, '=IF(E' . $rowIndex . '<=F' . $rowIndex . ', F' . $rowIndex . '-E' . $rowIndex . ', (F' . $rowIndex . '+1)-E' . $rowIndex . ')')
               ->setCellValue('I' . $rowIndex, $row['entrada_extra'])
               ->setCellValue('J' . $rowIndex, $row['saida_extra'])

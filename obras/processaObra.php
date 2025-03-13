@@ -6,7 +6,7 @@
 require '../db/conexao.php';
 if (isset($_POST['butao'])) {
 	$cliente = $_POST['cliente'];
-	$codigo = 'FO ' . $_POST['codigo'];  
+	$codigo = $_POST['codigo'];  
 	$id_user = $_POST['id_user'];
 	$descricao = $_POST['descricao'];
 	$localizacao = $_POST['localizacao'];

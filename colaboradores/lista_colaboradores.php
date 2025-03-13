@@ -141,7 +141,7 @@ body {
     $limite = 20;
     $pagina= isset($_GET['pagina']) ? (int) $_GET['pagina'] : 1;
     $inicio = ($pagina - 1) * $limite;
-    $mysqlshow = mysqli_query($conexao, "SELECT * FROM colaborador WHERE status = 'ativo' LIMIT $inicio, $limite");
+    $mysqlshow = mysqli_query($conexao, "SELECT * FROM colaborador WHERE status = 'ativo' ORDER BY nome ASC LIMIT $inicio, $limite");
 
     while ($rows = mysqli_fetch_assoc($mysqlshow)) {
         // code...

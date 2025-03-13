@@ -31,7 +31,7 @@ $sql = "SELECT
 FROM hora_extra_obra
 JOIN colaborador ON hora_extra_obra.id_colaborador_extra = colaborador.id_colaborador
 JOIN obra ON hora_extra_obra.codigo_obra_extra = obra.codigo
-ORDER BY hora_extra_obra.datatime_extra DESC";
+ORDER BY CAST(codigo_obra_extra AS INTEGER) ASC";
 
 $result = $conn->query($sql);
 

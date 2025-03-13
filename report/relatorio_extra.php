@@ -88,7 +88,6 @@
             </div
         ></th>
         <th class="sortable" tabindex="0" style="text-align: right; width: 20%;">Hora de saida Extra<div class="sortable-icon">
-        </div></th><th class="sortable" tabindex="0" style="text-align: right; width: 20%;">Accoes<div class="sortable-icon">
         </div></th></tr></thead>
 <tbody  id="colaborrador_body" >
 

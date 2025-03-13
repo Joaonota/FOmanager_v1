@@ -63,7 +63,16 @@ Novo Historico do Colaborador</title>
                                                     <span data-expression="" style="font-size: 16px; font-weight: bold;"><?php echo strtoupper($obraros['colaborador_extra']); ?></span>
                                                     
                                                 </div>
+                                                
                                                 <div data-container="" style="margin-top: 20px;">
+                                                <div data-container="" style="margin-top: 20px;">
+        <label data-label="" class="OSFillParent">
+            <span style="font-weight: bold;">Pesquisa</span>
+        </label>
+        <span class="input-time">
+    <input data-input="" class="form-control OSFillParent" type="text" id="pesquisa" placeholder="Digite para filtrar..." oninput="filtrar()"  >
+</span>
+        </div>
                                                     <label data-label="" class="OSFillParent">
                                                         <span style="font-weight: bold;">Obra</span>
                                                     </label>
@@ -143,4 +152,20 @@ Novo Historico do Colaborador</title>
             </div>
         </div>
     </body>
+    <script>
+        function filtrar() {
+            const termo = document.getElementById("pesquisa").value.toLowerCase();
+            const dropdown = document.getElementById("Dropdown1");
+            const opcoes = dropdown.getElementsByTagName("option");
+
+            for (let i = 0; i < opcoes.length; i++) {
+                const texto = opcoes[i].textContent.toLowerCase();
+                if (texto.includes(termo)) {
+                    opcoes[i].style.display = "";
+                } else {
+                    opcoes[i].style.display = "none";
+                }
+            }
+        }
+    </script>
 </html>

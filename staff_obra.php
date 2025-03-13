@@ -1,86 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--link rel="stylesheet" href="css/FOManager.MainFlow.css"-->
-    <link rel="stylesheet" href="../css/bootstrap.css">
-    <link rel="stylesheet" href="../css/script.css">
-     <link rel="stylesheet" href="../css/aba.css">
-    <link rel="stylesheet" href="../css/Basic.css">
-  <link rel="stylesheet" href="../css/FOManager.FOManager.css">
-  <link rel="stylesheet" href="../css/OutSystemsReactWidgets.css">
-  <link rel="stylesheet" href="../css/OutSystemsUI.OutSystemsUI.css">
-  <link rel="stylesheet" href="../css/OutSystemsUI.OutSystemsUI.extra.css">
-  <link rel="stylesheet" href="../css/all.min.css">
-  <link rel="stylesheet" href="../css/all.css">
-  <link rel="stylesheet" href="../css/brands.min.css">
-  <link rel="stylesheet" href="../css/solid.min.css">
-  <link rel="stylesheet" href="../css/fontawesome.css">
-  <script src="../js/script.js"></script>
-<?php require "../estilo.php"; ?>
-<?php
-@$ids_obra = $_GET['ids_obra'];
 
-?>
- <link rel="stylesheet" href="../css/bootstrap.css">
-<title>Lista Dos Clientes</title>
-<style type="text/css">
-    
-    .hidden{
-        display: none;
-    }
-    @media (max-width: 768px) {
-        .ThemeGrid_Width8, .ThemeGrid_Width3, .ThemeGrid_Width5, .ThemeGrid_Width6 {
-            width: 100% !important;
-            margin: 0 !important;
-        }
-        .header-right, .header-top-content, .content-middle, .ThemeGrid_MarginGutter {
-            text-align: center !important;
-        }
-        .table-header th, .table-row td {
-            display: block;
-            width: 100%;
-            text-align: left !important;
-        }
-        .table-header th {
-            border-bottom: 1px solid #ddd;
-        }
-        .table-row {
-            margin-bottom: 10px;
-            border-bottom: 1px solid #ddd;
-        }
-        .table-row td {
-            padding: 10px 0;
-        }
-        .input-search, .input-time {
-            width: 100%;
-        }
-        .btn {
-            width: 100%;
-            margin-bottom: 10px;
-        }
-    }
-</style>
-</head>
-<body>
-    <?php 
-    if (@$painel == "staff") {
-        require "../staff_obra.php";
-    }else{
-
-  
-    ?>
+   
 <div id="reactContainer">
    <div  id="transitionContainer">
     <div class="active-screen screen-container slide-from-right-enter-done">
     <div data-block="Common.Layout" class="OSBlockWidget" id="$b1">
     <div   class="layout layout-side layout-native ios-bounce aside" id="b1-LayoutWrapper">
         <!-- drawer-->
-    <?php require "../drawer.php" ?>
+    <?php require "drawer.php" ?>
     <h1 data-advancedhtml="" class="header-title">
         <div class="OSInline" id="b1-Title">
-            <span style="font-weight: bold;">Editar Obra</span>
+            <span style="font-weight: bold;">Editar Obra - Staff</span>
         </div>
     </h1>
     <div class="header-right" id="b1-HeaderRight">
@@ -103,30 +32,8 @@
 <div data-container="" class="content" id="b1-ContentWrapper">
     <div data-container="" class="main-content ThemeGrid_Container" role="main" id="b1-MainContentWrapper">
     <div class="content-middle" id="b1-Content">
-        <?php $myaa = mysqli_query($conexao, "SELECT * from obra_andamento WHERE codigo_obra = '$ids_obra'");
-        $nnn = mysqli_num_rows($myaa);
-        if ($nnn <=0) {
-            // code...
-        }else if ($nnn> 0) {
-            // code...
-        {
-          $rosz = mysqli_fetch_assoc($myaa);
-        $sts = $rosz['status'];  
-        
-        
-       
-      if ($sts == 1) {
        
         
-         ?>
-
-        <div data-container="" style="text-align: center; margin-top: 10px;"><label data-label="" class="OSFillParent"><span style="font-weight: bold;">Obra Validada</span></label><span><input checked  data-switch="" class="switch" type="checkbox" id="statusCheckbox"></span>
-            <?php }else if ($sts == 0) {
-                echo '<div data-container="" style="text-align: center; margin-top: 10px;"><label data-label="" class="OSFillParent"><span style="font-weight: bold;">Obra Validada</span></label><span><input  data-switch="" class="switch" type="checkbox" id="statusCheckbox"></span>';
-            }
-        }  }
-
-            ?>
 
 <div style="display: none;" data-container="" style="text-align: center; margin-top: 10px;"><label data-label="" class="OSFillParent"><span style="font-weight: bold;">Obra Validada</span></label><span><input  data-switch="" class="switch" type="checkbox" id="statusCheckbox"></span>
 
@@ -179,6 +86,8 @@
      <tbody id="obras_body"></tbody>
 <div data-container="" style="margin-top: 20px;">
     <div data-list="" class="list list-group OSFillParent" style="position: relative;">
+   
+
 </div>
 </div>
 </table>
@@ -210,82 +119,52 @@
 
 
          <div data-block="Content.Cards" class="OSBlockWidget" id="$b7">
-           
-     
             <div data-container="">
-                <div data-block="Content.Carad" class="OSBlockWidget" id="$b7">
-          
-<div style="height: 500px;" class="ph card card-content card-overflow" id="b7-Content">
-    <div class="header-right" id="b1-HeaderRight">
-        <div data-block="DownloadFlow.Download" class="OSBlockWidget" id="$b4">
-        <span hidden="">&lt;Download&gt;</span>
-        </div>
-
-    <a data-link="" class="ThemeGrid_MarginGutter" href="download_excel_filtro.php?obra=<?php echo $ids_obra?>" download="Obra_filtrada.xlsx">
-        <i data-icon="" class="icon fa fa-file-excel-o fa-2x"></i>
-    </a>
-    </div>
-    <div class="ph card card-content card-overflow" id="b7-Content">
-
-   <table class="table table-responsive">
-    <thead>
-        <tr class="table-header">
-            <th class="sortable" tabindex="0" style="width: 40%;">Nome<div class="sortable-icon"></div></th>
-            <th class="sortable" tabindex="0" style="text-align: right; width: 15%;">&nbsp;In<div class="sortable-icon"></div></th>
-            <th class="sortable" tabindex="0" style="text-align: right; width: 15%;">&nbsp;Out<div class="sortable-icon"></div></th>
-            <th class="" tabindex="0" style="padding: 0px 10px; width: 15%;"></th>
-            <th class="" tabindex="0" style="padding: 0px 10px; width: 15%;"></th>
-        </tr>
-    </thead>
-    <tbody>
-    <?php while ($listas = mysqli_fetch_assoc($mysqlve)) { ?>
-        <tr class="table-row">
-            <td data-header="Nome" style="padding: 8px 20px; text-align: left;">
-                <span><?php echo strtoupper($listas['colaborador']); ?></span>
-                
-            </td>
-            <td data-header="&nbsp;In" style="padding: 8px 20px;">
-                <div data-container="" style="text-align: right;">
-                    <span data-expression=""><?php echo $listas['entrada']; ?></span>
-                </div>
-            </td>
-            <td data-header="&nbsp;Out" style="padding: 8px 20px;">
-                <div data-container="" style="text-align: right;">
-                    <span data-expression=""><?php echo $listas['saida']; ?></span>
-                </div>
-            </td>
-            <td data-header="" style="padding: 8px 5px 8px 10px;">
-                <a onclick="mostrapovalida()" href="detalhe_obra.php?idextra=<?php echo $listas['id_colaborador']; ?>&idobra_exta=<?php echo @$ids_obra; ?>"><i data-icon="" class="icon fa fa-clock-o fa-2x" style="color: rgb(89, 172, 227); font-size: 32px;"></i></a>
-                
-            </td>
-            <td data-header="" style="padding: 8px 10px 8px 0px;">
-                <div data-container="" style="text-align: left;">
-                    <div data-container="" class="ThemeGrid_Width6" style="text-align: left; margin-right: 10px;">
-                        <button data-toggle="modal" type="button" data-target="#exampleModaltra" data-iduser="<?php echo $listas['id_colaborador']; ?>">
-                            <i data-icon="" class="icon fa fa-exchange fa-2x" style="color: rgb(78, 213, 85);"></i>
-                        </button>
+                <div data-block="Content.Card" class="OSBlockWidget" id="$b7">
+                    <div style="height: 500px;" class="ph card card-content card-overflow" id="b7-Content">
+                        <div class="header-right" id="b1-HeaderRight">
+                            <div data-block="DownloadFlow.Download" class="OSBlockWidget" id="$b4">
+                                <span hidden="">&lt;Download&gt;</span>
+                            </div>
+                            <a data-link="" class="ThemeGrid_MarginGutter" href="download_excel_filtro.php?obra=<?php echo $ids_obra?>" download="Obra_filtrada.xlsx">
+                                <i data-icon="" class="icon fa fa-file-excel-o fa-2x"></i>
+                            </a>
+                        </div>
+                        <div class="ph card card-content card-overflow" id="b7-Content">
+                            <table class="table table-responsive">
+                                <thead>
+                                    <tr class="table-header">
+                                        <th class="sortable" tabindex="0" style="width: 40%;">Nome<div class="sortable-icon"></div></th>
+                                        <th class="sortable" tabindex="0" style="text-align: right; width: 15%;">Entrada<div class="sortable-icon"></div></th>
+                                        <th class="sortable" tabindex="0" style="text-align: right; width: 15%;">Saída<div class="sortable-icon"></div></th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php while ($listas = mysqli_fetch_assoc($mysqlve)) { ?>
+                                        <tr class="table-row">
+                                            <td data-header="Nome" style="padding: 8px 20px; text-align: left;">
+                                                <span><?php echo strtoupper($listas['colaborador']); ?></span>
+                                            </td>
+                                            <td data-header="Entrada" style="padding: 8px 20px;">
+                                                <div data-container="" style="text-align: right;">
+                                                    <span data-expression=""><?php echo $listas['entrada']; ?></span>
+                                                </div>
+                                            </td>
+                                            <td data-header="Saída" style="padding: 8px 20px;">
+                                                <div data-container="" style="text-align: right;">
+                                                    <span data-expression=""><?php echo $listas['saida']; ?></span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-        <a data-link="" href="processa_deletar_colaboador_obra.php?func=deletar&id_d_cola=<?php echo $listas['id_colaborador']; ?>&idobra_exta=<?php echo @$ids_obra; ?>" class="ThemeGrid_MarginGutter" href="#" style="margin-right: 10px;">
-                        <i data-icon="" class="icon fa fa-trash fa-2x" style="color: rgb(227, 91, 89);"></i>
-                    </a>
                 </div>
-            </td>
-        </tr>
-        <?php  } ?>
-    
-    </tbody>
-</table>
-
-
-</div>
-                </div>
-     
-            
             </div>
-        </div>
-
-
-            </div>
+         </div>
 <?php  
         }
  ?>
@@ -298,7 +177,7 @@
                     <div class="search-input" id="b8-Input">
 <label data-label="" class="wcag-hide-text OSFillParent">Search input</label>
 <span class="input-search">
-<input data-input="" class="form-control OSFillParent" type="search" placeholder="Procurar Colaborador" aria-required="false" maxlength="100" value="" id="searchInput"></span>
+    <input data-input="" class="form-control OSFillParent" type="search" placeholder="Procurar Colaborador" aria-required="false" maxlength="100" value="" id="searchInput"></span>
 </div>
 <div data-container="" class="search-glass" style="cursor: pointer;">
     <div data-container="" class="search-stick-bottom"></div>
@@ -325,9 +204,7 @@ while ($row = mysqli_fetch_assoc($sqlcola)) {
                 <div data-block="Utilities.AlignCenter" class="OSBlockWidget" id="l4-56_120-$b10">
                     <div class="vertical-align flex-direction-row" id="l4-56_120-b10-Content">
                         <span data-expression="" class="bold ThemeGrid_Width10" style="font-size: 18px; color: #333;"><?php echo strtoupper($row['nome']); ?></span>
-                        <button data-toggle="modal" data-target="#exampleModal" data-iduser="<?php echo $row['id_colaborador']; ?>" type="button" class="btn btn-primary" style="font-size: 20px; border-radius: 10px; padding: 5px 10px; margin-left: 10px;">
-                            <i data-icon="" class="icon fa fa-plus fa-lg ThemeGrid_MarginGutter" style="color: white; font-size: 20px;"></i>
-                        </button>
+                       
                     </div>
                 </div>
             </div>
@@ -405,17 +282,21 @@ $ids_obra = $_GET['ids_obra'];
                     <span style="font-weight: bold;">Hora de Entrada</span>
                 </label>
                 <span class="input-time">
-                    <input data-input="" value="00:00" name="entrada_extra" class="form-control OSFillParent" type="time" aria-required="false" value="" >
+                    <input data-input="" name="entrada_extra" class="form-control OSFillParent" type="time" aria-required="false" value="" >
                 </span>
             </div>
             <div  id="Input_TimeIn6" class="hidden" >
                 <label data-label="" class="ThemeGrid_Width5">
                     <span style="font-weight: bold;">Hora de Saida</span>
                 </label><span class="input-time">
-                    <input data-input="" value="00:00" name="saida_extra" class="form-control OSFillParent" type="time" aria-required="false" >
+                    <input data-input="" name="saida_extra" class="form-control OSFillParent" type="time" aria-required="false" >
                 </span>
             </div>
-            
+            <div  id="Input_TimeIn6" >
+                    <label data-label="" class="OSFillParent" for="Checkbox1">Activo</label>
+                    <span><input data-checkbox="on" name="status" class="checkbox" type="checkbox"  id="Checkbox1"></span>
+                   
+            </div>
 <br>
             
 
@@ -450,14 +331,6 @@ $ids_obra = $_GET['ids_obra'];
      <div id="consultaResultado2">
          
      </div>
-     <div data-container="" style="margin-top: 20px;">
-        <label data-label="" class="OSFillParent">
-            <span style="font-weight: bold;">Pesquisa</span>
-        </label>
-        <span class="input-time">
-    <input data-input="" class="form-control OSFillParent" type="text" id="pesquisa" placeholder="Digite para filtrar..." oninput="filtrar()"  >
-</span>
-        </div>
 <div data-container="" style="margin-top: 20px;">
     <label data-label="" class="OSFillParent">Transferir o colaborador para:</label>
 </div>
@@ -514,14 +387,14 @@ $ids_obra = $_GET['ids_obra'];
                     <span style="font-weight: bold;">Hora de Entrada da Hora Extra</span>
                 </label>
                 <span class="input-time">
-                    <input data-input="" value="00:00" name="entrada_extra" class="form-control OSFillParent" type="time" aria-required="false" value="" >
+                    <input data-input="" name="entrada_extra" class="form-control OSFillParent" type="time" aria-required="false" value="" >
                 </span>
             </div>
             <div  id="Input_TimeIn9" class="hidden" >
                 <label data-label="" class="ThemeGrid_Width5">
                     <span style="font-weight: bold;">Hora de Saida da Hora Extra</span>
                 </label><span class="input-time">
-                    <input data-input="" value="00:00" name="saida_extra" class="form-control OSFillParent" type="time" aria-required="false" >
+                    <input data-input="" name="saida_extra" class="form-control OSFillParent" type="time" aria-required="false" >
                 </span>
             </div>
             
@@ -624,7 +497,7 @@ while ($datarow = mysqli_fetch_assoc($sqlidobras)) {
                     <span style="font-weight: bold;">Hora de Saida</span>
                 </label>
                 <span class="input-time">
-                    <input data-input="" class="form-control OSFillParent" type="time" aria-required="false"  value="<?php echo   $datarow['saida']; ?>" name="saida" id="Input_TimeIn2" step ="60">
+                    <input data-input="" class="form-control OSFillParent" type="time" aria-required="false"  value="<?php echo   $datarow['saida']; ?>" name="saida" id="Input_TimeIn2">
                 </span>
             </div>
             <div data-container="">
@@ -657,12 +530,12 @@ while ($datarow = mysqli_fetch_assoc($sqlidobras)) {
     </div>
 <footer data-advancedhtml="" role="contentinfo" class="content-bottom"><div class="footer ph" id="b1-Bottom"><div data-block="Common.BottomBar" class="OSBlockWidget" id="$b12"><div data-container="" class="bottom-bar-wrapper"><div data-container="" class="bottom-bar ph"></div></div></div></div></footer></div><div data-container="" class="offline-data-sync"><div data-block="Common.OfflineDataSyncEvents" class="OSBlockWidget" id="b1-$b2"><div data-block="Private.OfflineDataSyncCore" class="OSBlockWidget" id="b1-b2-$b1"><div data-block="Private.NetworkStatusChanged" class="OSBlockWidget" id="b1-b2-b1-$b1"><div data-container=""></div></div></div></div></div></div></div></div></div></div></div>
         
-<script src="../js/jquery.js"></script> 
-<script src="../js/bootstrap.js"></script>
+<script src="js/jquery.js"></script> 
+<script src="js/bootstrap.js"></script>
 
-    <script src="../js/filtrocliente.js"></script>
-     <script src="../js/modal.js"></script>
-     <script src="../js/time.js"></script>
+    <script src="js/filtrocliente.js"></script>
+     <script src="js/modal.js"></script>
+     <script src="js/time.js"></script>
 
     
 
@@ -822,7 +695,7 @@ $(document).ready(function() {
 
         // Faz uma solicitação AJAX para buscar os resultados da pesquisa no servidor
         $.ajax({
-            url: 'pesquisa2.php?ids_obra=<?php echo $_GET['ids_obra']; ?>', // Caminho para o script PHP que busca os resultados da pesquisa com o id da obra
+            url: 'pesquisa2.php', // Caminho para o script PHP que busca os resultados da pesquisa
             method: 'POST',
             data: { query: query }, // Envia o termo de pesquisa para o servidor
             success: function(response) {
@@ -834,25 +707,6 @@ $(document).ready(function() {
     });
 });
    </script>
-   
-   <?php } ?>
 
-
-   <script>
-        function filtrar() {
-            const termo = document.getElementById("pesquisa").value.toLowerCase();
-            const dropdown = document.getElementById("Dropdown5");
-            const opcoes = dropdown.getElementsByTagName("option");
-
-            for (let i = 0; i < opcoes.length; i++) {
-                const texto = opcoes[i].textContent.toLowerCase();
-                if (texto.includes(termo)) {
-                    opcoes[i].style.display = "";
-                } else {
-                    opcoes[i].style.display = "none";
-                }
-            }
-        }
-    </script>
 </body>
 </html>

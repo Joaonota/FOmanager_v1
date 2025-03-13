@@ -144,7 +144,7 @@ $limite = 20;
 $pagina= isset($_GET['pagina']) ? (int) $_GET['pagina'] : 1;
 $inicio = ($pagina - 1) * $limite;
 @$id = $_GET['id'];
-$mysqlshow = mysqli_query($conexao,"SELECT * FROM obra WHERE status = 'ativo' ORDER BY datatime DESC LIMIT $inicio, $limite");
+$mysqlshow = mysqli_query($conexao,"SELECT * FROM obra WHERE status = 'ativo' ORDER BY CAST(codigo AS INTEGER) ASC LIMIT $inicio, $limite");
 while ($rows= mysqli_fetch_assoc($mysqlshow)) {
                        // code...
                    
@@ -439,24 +439,53 @@ $inicio = ($pagina - 1) * $limite;
 <?php }
 
 
-$result_count = mysqli_query($conexao, "SELECT COUNT(*) as total FROM obra ");
+$result_count = mysqli_query($conexao, "SELECT COUNT(*) as total FROM obra WHERE status = 'ativo'");
 $row_count = mysqli_fetch_assoc($result_count);
 $total_paginas = ceil($row_count['total'] / $limite);
 
-for ($i=1; $i <=$total_paginas;  $i++) { 
-
 echo '<div class="pagination">';
-    echo "<a href='lista_obra.php?pagina=$i'>$i</a>";
-     echo '</div>';
+if ($pagina > 1) {
+    echo "<a href='lista_obra.php?pagina=" . ($pagina - 1) . "'>Anterior</a>";
 }
 
+$max_links = 20;
+if ($total_paginas > 20) {
+    if ($pagina > 10) {
+        echo "<a href='lista_obra.php?pagina=1'>1</a>";
+        echo "<span class='ellipsis'>...</span>";
+    }
+    $start = max(1, min($pagina - 9, $total_paginas - 19));
+    $end = min($total_paginas, $start + 19);
+} else {
+    $start = 1;
+    $end = $total_paginas;
+}
+$start = max(1, $pagina - floor($max_links / 2));
+$end = min($total_paginas, $pagina + floor($max_links / 2));
+
+for ($i = $start; $i <= $end; $i++) {
+    if ($i == $pagina) {
+        echo "<a class='active' href='lista_obra.php?pagina=$i'>$i</a>";
+    } else {
+        echo "<a href='lista_obra.php?pagina=$i'>$i</a>";
+    }
+}
+
+if ($pagina < $total_paginas) {
+    echo "<a href='lista_obra.php?pagina=" . ($pagina + 1) . "'>Próximo</a>";
+}
+echo '</div>';
 
  ?>
 </div>
 
    <div data-block="Content.Accordion" id="tab3" class="tab-content">
 <?php 
-                   $mysqlshow = mysqli_query($conexao,"SELECT  * FROM obra where status = 'inativo'");
+
+
+
+
+                   $mysqlshow = mysqli_query($conexao,"SELECT  * FROM obra where status = 'inativo' LIMIT $inicio, $limite ");
                    while ($rows= mysqli_fetch_assoc($mysqlshow)) {
                        // code...
                    
@@ -560,7 +589,45 @@ echo '<div class="pagination">';
 </div>
 </div>
 </div>
-<?php } ?>
+<?php } 
+
+$result_count = mysqli_query($conexao, "SELECT COUNT(*) as total FROM obra WHERE status = 'inativo'");
+$row_count = mysqli_fetch_assoc($result_count);
+$total_paginas = ceil($row_count['total'] / $limite);
+
+echo '<div class="pagination">';
+if ($pagina > 1) {
+    echo "<a href='lista_obra.php?pagina=" . ($pagina - 1) . "'>Anterior</a>";
+}
+
+$max_links = 20;
+if ($total_paginas > 20) {
+    if ($pagina > 10) {
+        echo "<a href='lista_obra.php?pagina=1'>1</a>";
+        echo "<span class='ellipsis'>...</span>";
+    }
+    $start = max(1, min($pagina - 9, $total_paginas - 19));
+    $end = min($total_paginas, $start + 19);
+} else {
+    $start = 1;
+    $end = $total_paginas;
+}
+$start = max(1, $pagina - floor($max_links / 2));
+$end = min($total_paginas, $pagina + floor($max_links / 2));
+
+for ($i = $start; $i <= $end; $i++) {
+    if ($i == $pagina) {
+        echo "<a class='active' href='lista_obra.php?pagina=$i'>$i</a>";
+    } else {
+        echo "<a href='lista_obra.php?pagina=$i'>$i</a>";
+    }
+}
+
+if ($pagina < $total_paginas) {
+    echo "<a href='lista_obra.php?pagina=" . ($pagina + 1) . "'>Próximo</a>";
+}
+echo '</div>';
+?>
 </div>
 
 </div>
