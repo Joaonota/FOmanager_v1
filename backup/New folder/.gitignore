@@ -1,0 +1,6 @@
+#arquivo de conexao
+conexao.php
+
+#Ignore logs
+error_log
+*.logs
