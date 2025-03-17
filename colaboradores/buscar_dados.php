@@ -21,7 +21,8 @@ if ($myslclinte && $myslclinte->num_rows > 0) {
     while ($row = $myslclinte->fetch_assoc()) {
         // Formatação da data
         $dataOriginal = $row["data_marcada"];
-        $dataformatada = date('d M Y', strtotime($dataOriginal));
+        $dataformatada = DateTime::createFromFormat('d/m/Y', $dataOriginal)->format('d M Y');
+
 
         echo '<tr class="table-row">
         <td></td>

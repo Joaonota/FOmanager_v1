@@ -35,7 +35,7 @@ if (isset($_POST['butao'])) {
 
                 if ($entrada == "00:00" && $saida == "00:00") {
 
-                    $dataAtual = date('d/m/Y');
+                    $data_marcada = $_POST['data_marcada'];
                     $codigo_obra = $_POST['codigo_obra'];
                     $descricao_extra = $_POST['descricao_extra'];
                     $colaborador = $_POST['colaborador'];
@@ -44,7 +44,7 @@ if (isset($_POST['butao'])) {
                     $saida_extra = $_POST['saida_extra'];
 
                     $mysqdd = mysqli_query($conexao, "INSERT INTO hora_extra_obra (codigo_obra_extra, descricao_extra, id_colaborador_extra, colaborador_extra,entrada, saida, entrada_extra, saida_extra,data_marcada) 
-                    SELECT '$codigo_obra', '$descricao_extra', '$id_colaborador', '$colaborador', '$entrada', '$saida','$entrada_extra', '$saida_extra','$dataAtual'
+                    SELECT '$codigo_obra', '$descricao_extra', '$id_colaborador', '$colaborador', '$entrada', '$saida','$entrada_extra', '$saida_extra','$data_marcada'
                     FROM dual
                     WHERE NOT EXISTS (
                         SELECT codigo_obra_extra FROM hora_extra_obra WHERE codigo_obra_extra = '$codigo_obra'
@@ -66,9 +66,9 @@ if (isset($_POST['butao'])) {
                     $saida = $_POST['saida'];
                     $id_colaborador = $_POST['id_colaborador'];
                     $cell = $_POST['cell'];
-                    $dataAtual = date('d/m/Y');
+                    $data_marcada = $_POST['data_marcada'];
                     #$status = $_POST['status'];
-                    $horaz = mysqli_query($conexao, "INSERT INTO hora_extra_obra (codigo_obra_extra,descricao_extra,id_colaborador_extra,colaborador_extra,entrada,saida,entrada_extra,saida_extra,data_marcada) values ('$codigo_obra','$descricao_extra','$id_colaborador','$colaborador','$entrada','$saida','$entrada_extra','$saida_extra','$dataAtual') ");
+                    $horaz = mysqli_query($conexao, "INSERT INTO hora_extra_obra (codigo_obra_extra,descricao_extra,id_colaborador_extra,colaborador_extra,entrada,saida,entrada_extra,saida_extra,data_marcada) values ('$codigo_obra','$descricao_extra','$id_colaborador','$colaborador','$entrada','$saida','$entrada_extra','$saida_extra','$data_marcada') ");
                 
                     
                     $mysqdd = mysqli_query($conexao, "INSERT INTO obra_andamento (codigo_obra,id_colaborador,colaborador,entrada,saida) values ('$codigo_obra','$id_colaborador','$colaborador','$entrada','$saida') ");

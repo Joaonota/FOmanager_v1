@@ -188,7 +188,7 @@
     <span style="font-size: 16px; font-weight: bold;">Colaboradores na Obra</span>
     <div data-container="">
         <?php 
-        $mysqlve =mysqli_query($conexao,"SELECT * FROM obra_andamento WHERE codigo_obra = '$ids_obra'");
+        $mysqlve =mysqli_query($conexao,"SELECT * FROM obra_andamento WHERE codigo_obra = '$ids_obra' ORDER BY CAST(codigo_obra AS INTEGER) ASC");
         $numr= mysqli_num_rows($mysqlve);
 
         if ($numr <= 0) {
@@ -310,7 +310,7 @@
     <div id="initialData">
 <?php   
 
-$sqlcola =mysqli_query($conexao,"SELECT * FROM colaborador");
+$sqlcola =mysqli_query($conexao,"SELECT * FROM colaborador ORDER BY nome ASC");
 
 while ($row = mysqli_fetch_assoc($sqlcola)) {
     // code...
@@ -392,6 +392,13 @@ $ids_obra = $_GET['ids_obra'];
             <span style="font-weight: bold;">Hora de Saida</span>
         </label><span class="input-time">
             <input data-input="" name="saida" value="00:00" class="form-control OSFillParent" type="time" aria-required="false" value="" id="saida">
+        </span>
+    </div>
+    <div data-container="">
+        <label data-label="" class="ThemeGrid_Width5">
+            <span style="font-weight: bold;">Data</span>
+        </label><span class="input-time">
+            <input data-input="" name="data_marcada"  class="form-control OSFillParent" type="Date"  >
         </span>
     </div>
 <div data-container="">

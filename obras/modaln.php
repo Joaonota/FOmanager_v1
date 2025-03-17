@@ -107,6 +107,13 @@ while ($rows = mysqli_fetch_assoc($mysss)) {
             <input data-input="" name="saida" value="00:00" class="form-control OSFillParent" type="time" aria-required="false" value="" id="saida">
         </span>
     </div>
+    <div data-container="">
+        <label data-label="" class="ThemeGrid_Width5">
+            <span style="font-weight: bold;">Data</span>
+        </label><span class="input-time">
+            <input data-input="" name="data_marcada"  class="form-control OSFillParent" type="Date"  >
+        </span>
+    </div>
 <div data-container="">
             <label data-label="" class="ThemeGrid_Width4" for="Dropdown4">
             <span style="font-weight: bold;">Horas extra</span>
@@ -128,6 +135,8 @@ while ($rows = mysqli_fetch_assoc($mysss)) {
                     <input data-input="" value="00:00" name="saida_extra" class="form-control OSFillParent" type="time" aria-required="false" >
                 </span>
             </div>
+            
+            
             <div  id="Input_TimeIn6" >
                     <label data-label="" class="OSFillParent" for="Checkbox1">Activo</label>
                     <span><input data-checkbox="on" name="status" class="checkbox" type="checkbox"  id="Checkbox1"></span>

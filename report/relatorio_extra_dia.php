@@ -147,7 +147,7 @@
                                         <th style="text-align: right; width: 20%;">Hora de Entrada Extra</th>
                                         <th style="text-align: right; width: 20%;">Hora de Saida Extra</th>
                                         <th style="text-align: right; width: 20%;">Data de Lançamento</th>
-                                        <th style="text-align: right; width: 20%;">Ações</th>
+                                     
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -165,7 +165,7 @@
                                         <td style="text-align: right;"><?php echo $row["entrada_extra"]; ?></td>
                                         <td style="text-align: right;"><?php echo $row["saida_extra"]; ?></td>
                                         <td style="text-align: right;"><?php echo $row["data_marcada"]; ?></td>
-                                        <td style="text-align: right;">Ações</td>
+                                        
                                     </tr>
                                     <?php     
                                         }
@@ -177,46 +177,60 @@
                             </table>
                         </div>
                     </div>
-                    <?php 
-                    // Exibição dos botões de paginação
-                    echo '<div class="pagination">';
-                    // Botão "Anterior"
-                    if ($current_page > 1) {
-                        echo '<a href="relatorio.php?page=' . ($current_page - 1) . '">&laquo; Anterior</a>';
-                    }
+                    <?php
+// Obtendo as datas do formulário ou da URL
+$data_inicio = isset($_POST['data_inicio']) ? $_POST['data_inicio'] : (isset($_GET['data_inicio']) ? $_GET['data_inicio'] : '');
+$data_fim = isset($_POST['data_fim']) ? $_POST['data_fim'] : (isset($_GET['data_fim']) ? $_GET['data_fim'] : '');
 
-                    // Exibir páginas com base na página atual e o número máximo de botões
-                    $start_page = max(1, $current_page - 13);
-                    $end_page = min($total_pages, $current_page + 13);
+// Exibição dos botões de paginação
+echo '<div class="pagination">';
 
-                    if ($start_page > 1) {
-                        echo '<a href="relatorio.php?page=1">1</a>';
-                        if ($start_page > 2) {
-                            echo '<span class="ellipsis">...</span>';
-                        }
-                    }
+// Parâmetros de filtro para manter na URL
+$filtroParams = "";
+if (!empty($data_inicio) && !empty($data_fim)) {
+    $filtroParams = "&data_inicio=$data_inicio&data_fim=$data_fim";
+}
 
-                    for ($page = $start_page; $page <= $end_page; $page++) {
-                        if ($page == $current_page) {
-                            echo '<a class="active" href="relatorio_extra_dia.php?page=' . $page . '">' . $page . '</a>';
-                        } else {
-                            echo '<a href="relatorio_extra_dia.php?page=' . $page . '">' . $page . '</a>';
-                        }
-                    }
+// Botão "Anterior"
+if ($current_page > 1) {
+    echo '<a href="relatorio_extra_dia.php?page=' . ($current_page - 1) . $filtroParams . '">&laquo; Anterior</a>';
+}
 
-                    if ($end_page < $total_pages) {
-                        if ($end_page < $total_pages - 1) {
-                            echo '<span class="ellipsis">...</span>';
-                        }
-                        echo '<a href="relatorio_extra_dia.php?page=' . $total_pages . '">' . $total_pages . '</a>';
-                    }
+// Exibir páginas com base na página atual e o número máximo de botões
+$start_page = max(1, $current_page - 13);
+$end_page = min($total_pages, $current_page + 13);
 
-                    // Botão "Próxima"
-                    if ($current_page < $total_pages) {
-                        echo '<a href="relatorio_extra_dia.php?page=' . ($current_page + 1) . '">Próxima &raquo;</a>';
-                    }
-                    echo '</div>';
-                    ?>
+if ($start_page > 1) {
+    echo '<a href="relatorio_extra_dia.php?page=1' . $filtroParams . '">1</a>';
+    if ($start_page > 2) {
+        echo '<span class="ellipsis">...</span>';
+    }
+}
+
+for ($page = $start_page; $page <= $end_page; $page++) {
+    if ($page == $current_page) {
+        echo '<a class="active" href="relatorio_extra_dia.php?page=' . $page . $filtroParams . '">' . $page . '</a>';
+    } else {
+        echo '<a href="relatorio_extra_dia.php?page=' . $page . $filtroParams . '">' . $page . '</a>';
+    }
+}
+
+if ($end_page < $total_pages) {
+    if ($end_page < $total_pages - 1) {
+        echo '<span class="ellipsis">...</span>';
+    }
+    echo '<a href="relatorio_extra_dia.php?page=' . $total_pages . $filtroParams . '">' . $total_pages . '</a>';
+}
+
+// Botão "Próximo"
+if ($current_page < $total_pages) {
+    echo '<a href="relatorio_extra_dia.php?page=' . ($current_page + 1) . $filtroParams . '">Próximo &raquo;</a>';
+}
+
+echo '</div>';
+?>
+
+
                 </div>
             </div>
         </div>
