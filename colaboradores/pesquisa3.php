@@ -1,4 +1,6 @@
 <?php
+require "../int.php"; 
+
 require "../estilo.php"; // Certifique-se de incluir a conexão com o banco de dados
 
 if(isset($_POST['query'])) {

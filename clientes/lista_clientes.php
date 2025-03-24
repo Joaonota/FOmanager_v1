@@ -1,3 +1,4 @@
+<?php require "../int.php"; ?>
 <!DOCTYPE html>
 <html>
 <head>

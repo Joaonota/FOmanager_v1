@@ -1,5 +1,9 @@
 <?php
-session_start(); 
+// Inicia o buffer de saída
+ob_start();
+
+// Inicia a sessão
+session_start();
 require "conexao.php";
 
 // Verificar se as variáveis de sessão estão definidas e não estão vazias

@@ -1,4 +1,5 @@
 <?php
+ require "../int.php"; 
 require "../db/config.php";
 
 // Verificar se há um cliente selecionado via POST

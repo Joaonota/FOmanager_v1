@@ -1,3 +1,4 @@
+<?php require "../int.php"; ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -489,7 +490,14 @@ $ids_obra = $_GET['ids_obra'];
     
 </div>
 </div>
-
+<div data-container="" style="margin-top: 20px;">
+        <label data-label="" class="OSFillParent">
+            <span style="font-weight: bold;">Data</span>
+        </label>
+        <span class="input-time">
+    <input data-input="" class="form-control OSFillParent" required="" type="date"  name="data_marcada" >
+</span>
+        </div>
     <div data-container="" style="margin-top: 20px;">
         <label data-label="" class="OSFillParent">
             <span style="font-weight: bold;">Hora In para a nova obra</span>

@@ -54,7 +54,15 @@ $html .= '<table border="1" cellpadding="6" cellspacing="0" style="width: 100%;"
 
 $mysqlR = mysqli_query($conexao, "SELECT * FROM hora_extra_obra WHERE id_colaborador_extra = '$id'");
 while ($row = mysqli_fetch_assoc($mysqlR)) {
-    $dataformatada = date('d M Y', strtotime($row['data_marcada']));
+    $dataOriginal = $row["data_marcada"];
+    $dataformatada = DateTime::createFromFormat('d/m/Y', $dataOriginal);
+
+if ($dataformatada !== false) {
+    $dataformatada = $dataformatada->format('d M Y');
+} else {
+    $dataformatada = "Data inválida";
+}
+
     
     $html .= '<tr style="text-align: center;">
         <td>' . $dataformatada . '</td>

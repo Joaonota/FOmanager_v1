@@ -66,9 +66,13 @@ if (isset($_POST['butao'])) {
                     $saida = $_POST['saida'];
                     $id_colaborador = $_POST['id_colaborador'];
                     $cell = $_POST['cell'];
-                    $data_marcada = $_POST['data_marcada'];
+                    $data_marcada = $_POST['data_marcada'];  // Recebe a data do formulário
+					 $date = new DateTime($data_marcada);      // Cria um objeto DateTime com a data recebida
+					 $data_formatada = $date->format('d/m/Y'); // Formata a data como 'dia/mês/ano'
+					 echo $data_formatada;     
+
                     #$status = $_POST['status'];
-                    $horaz = mysqli_query($conexao, "INSERT INTO hora_extra_obra (codigo_obra_extra,descricao_extra,id_colaborador_extra,colaborador_extra,entrada,saida,entrada_extra,saida_extra,data_marcada) values ('$codigo_obra','$descricao_extra','$id_colaborador','$colaborador','$entrada','$saida','$entrada_extra','$saida_extra','$data_marcada') ");
+                    $horaz = mysqli_query($conexao, "INSERT INTO hora_extra_obra (codigo_obra_extra,descricao_extra,id_colaborador_extra,colaborador_extra,entrada,saida,entrada_extra,saida_extra,data_marcada) values ('$codigo_obra','$descricao_extra','$id_colaborador','$colaborador','$entrada','$saida','$entrada_extra','$saida_extra','$data_formatada') ");
                 
                     
                     $mysqdd = mysqli_query($conexao, "INSERT INTO obra_andamento (codigo_obra,id_colaborador,colaborador,entrada,saida) values ('$codigo_obra','$id_colaborador','$colaborador','$entrada','$saida') ");

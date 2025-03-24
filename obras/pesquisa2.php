@@ -1,4 +1,5 @@
 <?php
+require "../int.php"; 
 require "../estilo.php";
 $ids_obra = $_GET['ids_obra'];
 

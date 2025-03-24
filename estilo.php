@@ -16,11 +16,11 @@
   <link rel="stylesheet" href="css/fontawesome.css">
   <link rel="icon" type="img/Logo1.ico" href="img/Logo1.ico">
   <link rel="icon" type="img/Logo1.ico" href="../img/Logo1.ico">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   
 
 
 </head>
 
-   
-  
+
   <?php require "db/config.php"; ?>

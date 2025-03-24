@@ -25,7 +25,7 @@ $data =date("d/m/Y",strtotime($datas));
 
 				
 
-$mysqdd = mysqli_query($conexao, "INSERT INTO hora_extra_obra (codigo_obra_extra,descricao_extra,id_colaborador_extra,colaborador_extra,entrada_extra,saida_extra,entrada,saida,falta,data_marcada) values ('$codigo_obra_extra','$descricao_extra','$id_colaborador_extra','$colaborador_extra','$entrada_extra','$saida_extra','$entrada','$saida','nao','$data') ");
+$mysqdd = mysqli_query($conexao, "INSERT INTO hora_extra_obra (codigo_obra_extra,descricao_extra,id_colaborador_extra,colaborador_extra,entrada_extra,saida_extra,entrada,saida,data_marcada) values ('$codigo_obra_extra','$descricao_extra','$id_colaborador_extra','$colaborador_extra','$entrada_extra','$saida_extra','$entrada','$saida','$data') ");
 }
 
 if ($mysqdd =='' ) {

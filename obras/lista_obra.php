@@ -1,3 +1,5 @@
+<?php require "../int.php"; ?>
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -22,9 +24,8 @@
   <link rel="stylesheet" href="../css/brands.min.css">
   <link rel="stylesheet" href="../css/solid.min.css">
   <link rel="stylesheet" href="../css/fontawesome.css">
-  <script src="js/script.js"></script>
-<?php require "../estilo.php"; ?>
 
+<?php require "../estilo.php"; ?>
 <style>
 /* Adicionando estilo para permitir o scroll */
 body {

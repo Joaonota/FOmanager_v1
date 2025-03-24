@@ -1,5 +1,5 @@
 <?php
-
+ require "../int.php"; 
 require "../db/conexao.php";
 
 // Verifica a conexão

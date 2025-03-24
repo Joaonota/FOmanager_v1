@@ -21,13 +21,16 @@ require '../db/conexao.php';
                      $entrada_extra = $_POST['entrada_extra'];
                      $saida_extra = $_POST['saida_extra'];
 
-                     $dataAtual = date('d/m/Y');
+                     $data_marcada = $_POST['data_marcada'];  // Recebe a data do formulário
+					 $date = new DateTime($data_marcada);      // Cria um objeto DateTime com a data recebida
+					 $data_formatada = $date->format('d/m/Y'); // Formata a data como 'dia/mês/ano'
+					 echo $data_formatada;     
 
                 
 
 $mysqdd = mysqli_query($conexao, "UPDATE  obra_andamento SET codigo_obra = '$codigo_obra',entrada = '$entrada_extra', saida ='$saida_extra' where id_colaborador = '$id_colaborador'");
 
-    $mysqdd = mysqli_query($conexao, "INSERT INTO hora_extra_obra (codigo_obra_extra,descricao_extra,id_colaborador_extra,colaborador_extra,entrada_extra,saida_extra,entrada,saida,data_marcada) values ('$codigo_obra','$descricao_extra','$id_colaborador','$colaborador','$entrada_extra','$saida_extra','$entrada','$saida','$dataAtual') ");
+    $mysqdd = mysqli_query($conexao, "INSERT INTO hora_extra_obra (codigo_obra_extra,descricao_extra,id_colaborador_extra,colaborador_extra,entrada_extra,saida_extra,entrada,saida,data_marcada) values ('$codigo_obra','$descricao_extra','$id_colaborador','$colaborador','$entrada_extra','$saida_extra','$entrada','$saida','$data_formatada') ");
              echo "<script>alert('Transferencia sussedica')</script>";
     echo "<script>location='detalhe_obra.php?ids_obra=$codigo_obra';</script>";
 				}else{
@@ -41,12 +44,16 @@ $mysqdd = mysqli_query($conexao, "UPDATE  obra_andamento SET codigo_obra = '$cod
                      $entrada_extra = $_POST['entrada_extra'];
                      $saida_extra = $_POST['saida_extra'];
 
-                     $dataAtual = date('d/m/Y');
+					 $data_marcada = $_POST['data_marcada'];  // Recebe a data do formulário
+					 $date = new DateTime($data_marcada);      // Cria um objeto DateTime com a data recebida
+					 $data_formatada = $date->format('d/m/Y'); // Formata a data como 'dia/mês/ano'
+					 echo $data_formatada;                     // Exibe a data formatada
+					 
 
 				
 					$mysqdd = mysqli_query($conexao, "UPDATE  obra_andamento SET codigo_obra = '$codigo_obra',entrada = '$entrada', saida ='$saida' where id_colaborador = '$id_colaborador'");
 
-					 $mysqddh = mysqli_query($conexao, "INSERT INTO hora_extra_obra (codigo_obra_extra,descricao_extra,id_colaborador_extra,colaborador_extra,entrada_extra,saida_extra,entrada,saida,data_marcada) values ('$codigo_obra','$descricao_extra','$id_colaborador','$colaborador','$entrada_extra','$saida_extra','$entrada','$saida','$dataAtual') ");
+					 $mysqddh = mysqli_query($conexao, "INSERT INTO hora_extra_obra (codigo_obra_extra,descricao_extra,id_colaborador_extra,colaborador_extra,entrada_extra,saida_extra,entrada,saida,data_marcada) values ('$codigo_obra','$descricao_extra','$id_colaborador','$colaborador','$entrada_extra','$saida_extra','$entrada','$saida','$data_formatada') ");
 
 
 	echo "<script>alert('Transferencia sussedica')</script>";

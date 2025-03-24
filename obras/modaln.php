@@ -1,3 +1,4 @@
+<?php require "../int.php"; ?>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--link rel="stylesheet" href="css/FOManager.MainFlow.css"-->
     <link rel="stylesheet" href="../css/bootstrap.css">
@@ -202,7 +203,14 @@ while ($rows = mysqli_fetch_assoc($mysss)) {
     
 </div>
 </div>
-
+<div data-container="" style="margin-top: 20px;">
+        <label data-label="" class="OSFillParent">
+            <span style="font-weight: bold;">Data</span>
+        </label>
+        <span class="input-time">
+    <input data-input="" class="form-control OSFillParent" required="" type="Date"  name="data_marcada" >
+</span>
+        </div>
     <div data-container="" style="margin-top: 20px;">
         <label data-label="" class="OSFillParent">
             <span style="font-weight: bold;">Hora In para a nova obra</span>
@@ -259,12 +267,12 @@ while ($rows = mysqli_fetch_assoc($mysss)) {
               </div></div>
 
 
-              <script src="js/jquery.js"></script> 
-<script src="js/bootstrap.js"></script>
+              <script src="../js/jquery.js"></script> 
+<script src="../js/bootstrap.js"></script>
 
-    <script src="js/filtrocliente.js"></script>
-     <script src="js/modal.js"></script>
-     <script src="js/time.js"></script>
+    <script src="../js/filtrocliente.js"></script>
+     <script src="../js/modal.js"></script>
+     <script src="../js/time.js"></script>
 
      <script type="text/javascript">
 
