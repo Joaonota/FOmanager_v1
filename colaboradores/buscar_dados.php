@@ -1,6 +1,5 @@
-
-
 <?php
+require "../int.php"; 
 require "../db/config.php";
 
  $usuario = $_POST['usuario'] ?? '';

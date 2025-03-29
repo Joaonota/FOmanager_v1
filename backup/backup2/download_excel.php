@@ -1,10 +1,17 @@
 <?php
+require "../int.php"; 
 // Inclua os arquivos necessários da biblioteca PhpSpreadsheet
 require '../vendor/autoload.php';
 require '../db/conexao.php'; // Inclua o arquivo que contém a função Conexao()
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use PhpOffice\PhpSpreadsheet\Style\NumberFormat;
+use PhpOffice\PhpSpreadsheet\Cell\DataType;
+
+// Se necessário, configure o cache de forma eficiente (se realmente for necessário)
+$cacheMethod = \PhpOffice\PhpSpreadsheet\CachedObjectStorageFactory::cache_to_discISAM;
+\PhpOffice\PhpSpreadsheet\Settings::setCacheStorageMethod($cacheMethod);
 
 // Conexão com o banco de dados usando a função
 $conn = Conexao();
@@ -63,41 +70,47 @@ $headerStyle = [
 ];
 $sheet->getStyle('A1:O1')->applyFromArray($headerStyle);
 
-// Preenche os dados na planilha de forma incremental
-$rowIndex = 2;
-while ($row = $result->fetch_assoc()) {
-    // Calcule as horas normais e extras diretamente no PHP
-    $horaNormal = calculateHours($row['entrada'], $row['saida']);
-    $horaExtra = calculateHours($row['entrada_extra'], $row['saida_extra']);
-    
-    // Adiciona os dados à planilha
-    $sheet->setCellValue('A' . $rowIndex, $row['id_extra'])
-          ->setCellValue('B' . $rowIndex, $row['codigo_obra_extra'])
-          ->setCellValue('C' . $rowIndex, strtoupper($row['descricao_extra']))
-          ->setCellValue('D' . $rowIndex, $row['colaborador_extra'])
-          ->setCellValue('E' . $rowIndex, $row['entrada'])
-          ->setCellValue('F' . $rowIndex, $row['saida'])
-          ->setCellValue('G' . $rowIndex, '1:00') // Almoço fixo (ajuste conforme necessário)
-          ->setCellValue('H' . $rowIndex, $horaNormal) // Hora normal calculada
-          ->setCellValue('I' . $rowIndex, $row['entrada_extra'])
-          ->setCellValue('J' . $rowIndex, $row['saida_extra'])
-          ->setCellValue('K' . $rowIndex, $horaExtra) // Hora extra calculada
-          ->setCellValue('L' . $rowIndex, $row['data_marcada'])
-          ->setCellValue('M' . $rowIndex, $row['cargo'])
-          ->setCellValue('N' . $rowIndex, $row['localizacao'])
-          ->setCellValue('O' . $rowIndex, $row['custo']);
+// Define a fonte padrão para todo o documento
+$defaultFontStyle = [
+    'font' => [
+        'name' => 'New Times Roman'
+    ]
+];
+$spreadsheet->getDefaultStyle()->applyFromArray($defaultFontStyle);
 
-    // Formata as células de hora para o formato hh:mm
-    $sheet->getStyle('E' . $rowIndex)->getNumberFormat()->setFormatCode('hh:mm');
-    $sheet->getStyle('F' . $rowIndex)->getNumberFormat()->setFormatCode('hh:mm');
-    $sheet->getStyle('G' . $rowIndex)->getNumberFormat()->setFormatCode('hh:mm');
-    $sheet->getStyle('H' . $rowIndex)->getNumberFormat()->setFormatCode('hh:mm');
-    $sheet->getStyle('I' . $rowIndex)->getNumberFormat()->setFormatCode('hh:mm');
-    $sheet->getStyle('J' . $rowIndex)->getNumberFormat()->setFormatCode('hh:mm');
-    $sheet->getStyle('K' . $rowIndex)->getNumberFormat()->setFormatCode('hh:mm');
+// Preenche os dados na planilha Excel
+if ($result->num_rows > 0) {
+    $rowIndex = 2;
+    while ($row = $result->fetch_assoc()) {
+        $sheet->setCellValue('A' . $rowIndex, $row['id_extra'])
+              ->setCellValue('B' . $rowIndex, $row['codigo_obra_extra'])
+              ->setCellValue('C' . $rowIndex, strtoupper($row['descricao_extra']))
+              ->setCellValue('D' . $rowIndex, $row['colaborador_extra'])
+              ->setCellValue('E' . $rowIndex, $row['entrada'])
+              ->setCellValue('F' . $rowIndex, $row['saida'])
+              ->setCellValue('G' . $rowIndex, '1:00')
+              ->setCellValue('H' . $rowIndex, '=IF(E' . $rowIndex . '<=F' . $rowIndex . ', TEXT(F' . $rowIndex . '-E' . $rowIndex . ',"hh:mm"), TEXT(1-(E' . $rowIndex . '-F' . $rowIndex . '),"hh:mm"))')
+              ->setCellValue('I' . $rowIndex, $row['entrada_extra'])
+              ->setCellValue('J' . $rowIndex, $row['saida_extra'])
+              ->setCellValue('K' . $rowIndex, '=IF(I' . $rowIndex . '<=J' . $rowIndex . ', TEXT(J' . $rowIndex . '-I' . $rowIndex . ',"hh:mm"), TEXT(1-(I' . $rowIndex . '-J' . $rowIndex . '),"hh:mm"))')
+              ->setCellValue('L' . $rowIndex, $row['data_marcada'])
+              ->setCellValue('M' . $rowIndex, $row['cargo'])
+              ->setCellValue('N' . $rowIndex, $row['localizacao'])
+              ->setCellValue('O' . $rowIndex, $row['custo']);
 
-    // Incrementar o índice da linha
-    $rowIndex++;
+        // Formata as células de hora para o formato hh:mm
+        $sheet->getStyle('E' . $rowIndex)->getNumberFormat()->setFormatCode('hh:mm');
+        $sheet->getStyle('F' . $rowIndex)->getNumberFormat()->setFormatCode('hh:mm');
+        $sheet->getStyle('G' . $rowIndex)->getNumberFormat()->setFormatCode('hh:mm');
+        $sheet->getStyle('H' . $rowIndex)->getNumberFormat()->setFormatCode('hh:mm');
+        $sheet->getStyle('I' . $rowIndex)->getNumberFormat()->setFormatCode('hh:mm');
+        $sheet->getStyle('J' . $rowIndex)->getNumberFormat()->setFormatCode('hh:mm');
+        $sheet->getStyle('K' . $rowIndex)->getNumberFormat()->setFormatCode('hh:mm');
+
+        $rowIndex++;
+    }
+} else {
+    echo "0 resultados encontrados";
 }
 
 // Adiciona a linha de totalização
@@ -137,17 +150,4 @@ $writer->save('php://output');
 
 // Fecha a conexão com o banco de dados
 $conn->close();
-
-// Função para calcular a diferença entre duas horas no formato 'hh:mm'
-function calculateHours($entrada, $saida) {
-    $entradaTime = strtotime($entrada);
-    $saidaTime = strtotime($saida);
-    
-    if ($saidaTime < $entradaTime) {
-        $saidaTime += 24 * 60 * 60; // Adiciona 24 horas caso a saída seja menor que a entrada
-    }
-    
-    $diff = $saidaTime - $entradaTime;
-    return gmdate("H:i", $diff);
-}
 ?>
